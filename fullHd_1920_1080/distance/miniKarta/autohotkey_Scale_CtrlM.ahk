@@ -1,3 +1,3 @@
 ^m::
-RunWait, python C:\Users\User\Desktop\distance\miniKarta\signalScale.py, , hide
+RunWait, python signalScale.py, , hide
 return
