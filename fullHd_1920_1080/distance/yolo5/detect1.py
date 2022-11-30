@@ -3,7 +3,7 @@ import torch
 from PIL import Image
 
 # Model
-model = torch.hub.load('.', 'custom', 'bestMarker.pt', source='local')#classes="1"
+model = torch.hub.load('.', 'custom', 'bestTank.pt', source='local')#classes="1"
 
 # Images
 
@@ -11,12 +11,12 @@ model = torch.hub.load('.', 'custom', 'bestMarker.pt', source='local')#classes="
 model.cpu()
 ###
 
-im = cv2.imread('screen3.jpg')[..., ::-1]  # OpenCV image (BGR to RGB)
+im = cv2.imread('karta.jpg')[..., ::-1]  # OpenCV image (BGR to RGB)
 model.conf = 0.15  # NMS confidence threshold отсев по точности первый
 model.iou = 0.45  # NMS IoU threshold второй, то есть то что больше 45% в теории пройдет
 model.agnostic = False  # NMS class-agnostic
 model.multi_label = False  # NMS multiple labels per box несколько лейблов одному объекту
-model.classes = [0]  # (optional list) filter by class, i.e. = [0, 15, 16] for COCO persons, cats and dogs
+model.classes = [0,1]  # (optional list) filter by class, i.e. = [0, 15, 16] for COCO persons, cats and dogs
                      #номера каких классов оставить
 model.max_det = 1000  # maximum number of detections per image
 model.amp = False  # Automatic Mixed Precision (AMP) inference

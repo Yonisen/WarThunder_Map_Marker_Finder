@@ -33,9 +33,9 @@ def validation(newval):
     return re.match("^\d{0,4}$", newval) is not None
 
 root = Tk()
-root.geometry("173x70+15+61") 
+root.geometry("173x70+15+71") 
 check = (root.register(validation), "%P")
-entry = Entry(fg="yellow", bg="black",font=('Roboto','16'), width = 5, validate="key", validatecommand=check)
+entry = Entry(fg="yellow", bg="black", font=('Roboto','16'), width = 5, validate="key", validatecommand=check)
 entry.master.overrideredirect(True)
 entry.master.lift()
 entry.master.wm_attributes("-topmost", True)

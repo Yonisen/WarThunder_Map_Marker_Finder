@@ -5,7 +5,7 @@ import time
 #import signal
 #from threading import Timer
 #import asyncio
-import win32gui
+import win32gui, win32api, win32con, pywintypes
 
 code = sys.argv[1]
 
@@ -19,49 +19,69 @@ if code == "true":
     #Создание диалогового окна с результатами
 
     root = Tk()
-    root.geometry("173x80+15+15") 
+    root.geometry("173x90+15+15") 
     label = Label(root, text=f'Дист: {distance}\nАзимут: {angel}\nм. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
     label.master.overrideredirect(True)
     label.master.lift()
     label.master.wm_attributes("-topmost", True)
     label.master.wm_attributes("-disabled", True)
-    #label.master.wm_attributes("-transparentcolor", "white")
+    #label.master.wm_attributes("-transparentcolor", "yellow")
+    
+    hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
+    exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
+    win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
+    
     label.pack()
     root.update()
 elif code == "errorArrow":
     scale = sys.argv[2]
     root = Tk()
-    root.geometry("173x80+15+15") 
+    root.geometry("173x90+15+15") 
     label = Label(root, text=f'твой танк\nне найден\nм. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
     label.master.overrideredirect(True)
     label.master.lift()
     label.master.wm_attributes("-topmost", True)
     label.master.wm_attributes("-disabled", True)
-    #label.master.wm_attributes("-transparentcolor", "white")
+    #label.master.wm_attributes("-transparentcolor", "yellow")
+    
+    hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
+    exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
+    win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
+    
     label.pack()
     root.update()    
 elif code == "errorMarker":
     scale = sys.argv[2]
     root = Tk()
-    root.geometry("173x80+15+15") 
+    root.geometry("173x90+15+15") 
     label = Label(root, text=f'метка\nне найдена\nм. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
     label.master.overrideredirect(True)
     label.master.lift()
     label.master.wm_attributes("-topmost", True)
     label.master.wm_attributes("-disabled", True)
-    #label.master.wm_attributes("-transparentcolor", "white")
+    #label.master.wm_attributes("-transparentcolor", "yellow")
+    
+    hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
+    exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
+    win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
+    
     label.pack()
     root.update()  
 elif code == "AError":
     scale = sys.argv[2]
     root = Tk()
-    root.geometry("173x80+15+15") 
+    root.geometry("173x90+15+15") 
     label = Label(root, text=f'буквы а е\nсовпадают\nм. {scale}', font=('Roboto','19'), fg='black', bg='yellow')
     label.master.overrideredirect(True)
     label.master.lift()
     label.master.wm_attributes("-topmost", True)
     label.master.wm_attributes("-disabled", True)
-    #label.master.wm_attributes("-transparentcolor", "white")
+    #label.master.wm_attributes("-transparentcolor", "yellow")
+    
+    hWindow = pywintypes.HANDLE(int(label.master.frame(), 16)) 
+    exStyle = win32con.WS_EX_LAYERED | win32con.WS_EX_NOACTIVATE | win32con.WS_EX_TRANSPARENT
+    win32api.SetWindowLong(hWindow, win32con.GWL_EXSTYLE, exStyle)
+    
     label.pack()
     root.update() 
     
