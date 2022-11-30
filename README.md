@@ -33,6 +33,6 @@
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/fullHd_1920_1080/distance/data/2/karta1.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/fullHd_1920_1080/distance/data/2/karta2.jpg">
 
-## Подготовка в начале матча (Ctrl+M)
+## Установка масштаба карты (Ctrl+M)
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/fullHd_1920_1080/distance/data/1/screen68.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/fullHd_1920_1080/distance/data/1/screen69.jpg">
