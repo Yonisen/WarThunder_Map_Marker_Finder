@@ -3,18 +3,28 @@
 
 Подготовка:
 
-Папка distance должна быть на рабочем столе
+Вначале убедитесь, что папка distance находится на рабочем столе
 
 Установите на компьютер:
-Python (>=3.8)
-	https://www.python.org/downloads/
+Python 3.10.6
+	https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe
+	!!!вначале установки поставьте галочку add python.exe to PATH
 Autohotkey
 	https://www.autohotkey.com/
 
-Откройте консоль и выполните команду:
-pip install -r "C:\Users\User\Desktop\distance\yolo5\requirements.txt"
+Откройте консоль
+
+Отредактируйте команду, представленную ниже
+Подставив туда имя пользователя Windows
+Короче, замените так, чтобы получился правильный путь до папки distance
+
+pip install -r "C:\Users\имя_пользователя\Desktop\distance\yolo5\requirements.txt"
+
+Вставьте полученную команду в консоль и нажмите Enter
+Дождитесь окончания установки
 
 Вышеперечисленные действия нужно сделать только один раз
+Теперь папку distance не обязательно держать на рабочем столе
 Теперь программа готова к работе
 
 
