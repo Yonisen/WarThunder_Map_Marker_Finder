@@ -1,22 +1,22 @@
-from PIL import ImageGrab
+#from PIL import ImageGrab
 #from PIL import Image
 import cv2
 import numpy as np
 import math
 from subprocess import Popen
+import pyautogui
 
 def checkDistance(modelTank, modelMarker):
   
         ######################################################################
-
-        screen = ImageGrab.grab(bbox =(1462,622, 1918, 1078))
+        screen = pyautogui.screenshot('karta.png', region=(1462,622, 456, 456))
         #screenScale = ImageGrab.grab(bbox =(1745, 902, 1905, 1062))
-        screen.save("karta.jpg")
-        karta = cv2.imread("karta.jpg")
+        #screen.save("karta.png")
+        karta = cv2.imread("karta.png")
         #im1 = Image.fromarray(im1)
-        #im1.save("karka.jpg")
+        #im1.save("karka.png")
 
-        #screen = pyautogui.screenshot('karta.jpg', region=(1472,632, 448, 448))
+        #screen = pyautogui.screenshot('karta.png', region=(1472,632, 448, 448))
 
         ######################################################################
 
@@ -81,7 +81,7 @@ def checkDistance(modelTank, modelMarker):
         ######################################################################
         #Определяем позицию желтой метки
 
-        #yellowMarker = cv2.imread("marker.jpg")#[..., ::-1]
+        #yellowMarker = cv2.imread("marker.png")#[..., ::-1]
         #resMarker = cv2.matchTemplate(karta,yellowMarker,cv2.TM_CCOEFF_NORMED)
         #a, b, d, top_left_marker = cv2.minMaxLoc(resMarker)
         #heightMarker, widthMarker, shit = yellowMarker.shape
@@ -164,12 +164,12 @@ def checkDistance(modelTank, modelMarker):
 
         ###буква A и буква E
 
-        abukva = cv2.imread("abukva.jpg")
+        abukva = cv2.imread("abukva.png")
         resAbukva = cv2.matchTemplate(karta,abukva,cv2.TM_CCOEFF_NORMED)
         a, b, d, top_left_a = cv2.minMaxLoc(resAbukva)
         print("лев_верх_угол_буква_a",top_left_a)
 
-        ebukva = cv2.imread("ebukva.jpg")
+        ebukva = cv2.imread("ebukva.png")
         resEbukva = cv2.matchTemplate(karta,ebukva,cv2.TM_CCOEFF_NORMED)
         a, b, d, top_left_e = cv2.minMaxLoc(resEbukva)
         print("лев_верх_угол_буква_e",top_left_e)
@@ -209,7 +209,7 @@ def showErrorArrow(scale, screen):
     number = int(number)
     file.close()
     file = open('shit_detection/tank/number.txt', 'w')    
-    screen.save(f'shit_detection/tank/screen{number}.jpg')
+    screen.save(f'shit_detection/tank/screen{number}.png')
     number+=1
     file.write(str(number))
     file.close()
@@ -230,7 +230,7 @@ def showErrorMarker(scale, screen):
     number = int(number)
     file.close()
     file = open('shit_detection/marker/number.txt', 'w')    
-    screen.save(f'shit_detection/marker/screen{number}.jpg')
+    screen.save(f'shit_detection/marker/screen{number}.png')
     number+=1  
     file.write(str(number))
     file.close()

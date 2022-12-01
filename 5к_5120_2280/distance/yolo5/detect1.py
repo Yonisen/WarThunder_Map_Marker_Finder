@@ -12,7 +12,7 @@ model.cpu()
 ###
 
 #im = cv2.imread('karta2.jpg')[..., ::-1]  # OpenCV image (BGR to RGB)
-im = Image.open('karta.jpg')
+im = Image.open('karta.png')
 model.conf = 0.15  # NMS confidence threshold отсев по точности первый
 model.iou = 0.45  # NMS IoU threshold второй, то есть то что больше 45% в теории пройдет
 model.agnostic = False  # NMS class-agnostic
