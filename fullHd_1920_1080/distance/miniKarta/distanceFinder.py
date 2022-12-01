@@ -11,6 +11,7 @@ def checkDistance(modelTank, modelMarker):
         ######################################################################
         screen = pyautogui.screenshot('karta.png', region=(1462,622, 456, 456))
         #screenScale = ImageGrab.grab(bbox =(1745, 902, 1905, 1062))
+        size = 456           
         #screen.save("karta.png")
         karta = cv2.imread("karta.png")
         #im1 = Image.fromarray(im1)
@@ -50,7 +51,8 @@ def checkDistance(modelTank, modelMarker):
         ######################################################################
         #Определяем позицию танка
         
-        arrowResults = modelTank(screen, size=456)
+        arrowResults = modelTank(screen, size)
+        #print(arrowResults.xyxy[0])                            
         arrowsConfidences = arrowResults.xyxy[0][:, -2].numpy().tolist()        
         if arrowsConfidences == []:
             showErrorArrow(scale, screen)
@@ -86,7 +88,8 @@ def checkDistance(modelTank, modelMarker):
         #a, b, d, top_left_marker = cv2.minMaxLoc(resMarker)
         #heightMarker, widthMarker, shit = yellowMarker.shape
         
-        markerResults = modelMarker(screen, size=456)
+        markerResults = modelMarker(screen, size)
+        #print(markerResults.xyxy[0])                             
         markerConfidences = markerResults.xyxy[0][:, -2].numpy().tolist()        
         if markerConfidences == []:
             showErrorMarker(scale, screen)
