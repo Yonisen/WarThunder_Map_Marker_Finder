@@ -53,7 +53,7 @@ def checkDistance(modelTank, modelMarker):
         arrowResults = modelTank(screen, size=456)
         arrowsConfidences = arrowResults.xyxy[0][:, -2].numpy().tolist()        
         if arrowsConfidences == []:
-            showErrorArrow(scale)
+            showErrorArrow(scale, screen)
             return
         arrowsCoords = arrowResults.xyxy[0][:, :-2].numpy()
         arrowIndex = 0
@@ -89,7 +89,7 @@ def checkDistance(modelTank, modelMarker):
         markerResults = modelMarker(screen, size=456)
         markerConfidences = markerResults.xyxy[0][:, -2].numpy().tolist()        
         if markerConfidences == []:
-            showErrorMarker(scale)
+            showErrorMarker(scale, screen)
             return
         markerCoords = markerResults.xyxy[0][:, :-2].numpy()
         markerIndex = 0
@@ -201,7 +201,15 @@ def checkDistance(modelTank, modelMarker):
         #    label['bg'] = "yellow"
         #root.update()
         ######################################################################
-def showErrorArrow(scale):
+def showErrorArrow(scale, screen):
+    file = open('shit_detection\tank\number.txt', 'r')
+    number = int(file.read())
+    file.close()
+    file = open('shit_detection\tank\number.txt', 'w')    
+    screen.save(f'shit_detection\tank\screen{scale}.jpg')
+    scale+=1
+    file.write(str(scale))
+    file.close()
     comand=["python", 'printResults.py', "errorArrow", f'{scale}']
     Popen(comand)
     #label['text'] = 'твой танк\nне найден'
@@ -211,7 +219,15 @@ def showErrorArrow(scale):
     #    label['bg'] = "yellow"
     #root.update()
 
-def showErrorMarker(scale):
+def showErrorMarker(scale, screen):
+    file = open('shit_detection\marker\number.txt', 'r')
+    number = int(file.read())
+    file.close()
+    file = open('shit_detection\marker\number.txt', 'w')    
+    screen.save(f'shit_detection\marker\screen{scale}.jpg')
+    scale+=1  
+    file.write(str(scale))
+    file.close()
     comand=["python", 'printResults.py', "errorMarker", f'{scale}']
     Popen(comand)
     #label['text'] = 'метка\nне найдена'
