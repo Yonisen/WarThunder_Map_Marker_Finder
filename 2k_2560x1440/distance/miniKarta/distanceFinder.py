@@ -216,14 +216,17 @@ def checkDistance(modelTank, modelMarker):
         #root.update()
         ######################################################################
 def showErrorArrow(scale, screen):
-    file = open('shit_detection\tank\number.txt', 'r')
-    number = int(file.read())
+    file = open('shit_detection/tank/number.txt', 'r')
+    number = file.read()
+    if number == "":
+        number = "0"
+    number = int(number)
     file.close()
-    file = open('shit_detection\tank\number.txt', 'w')    
-    screen.save(f'shit_detection\tank\screen{scale}.jpg')
-    scale+=1
-    file.write(str(scale))
-    file.close()                                                      
+    file = open('shit_detection/tank/number.txt', 'w')    
+    screen.save(f'shit_detection/tank/screen{number}.jpg')
+    number+=1
+    file.write(str(number))
+    file.close()
     comand=["python", 'printResults.py', "errorArrow", f'{scale}']
     Popen(comand)
     #label['text'] = 'твой танк\nне найден'
@@ -234,14 +237,17 @@ def showErrorArrow(scale, screen):
     #root.update()
 
 def showErrorMarker(scale, screen):
-    file = open('shit_detection\marker\number.txt', 'r')
-    number = int(file.read())
+    file = open('shit_detection/marker/number.txt', 'r')
+    number = file.read()
+    if number == "":
+        number = "0"
+    number = int(number)
     file.close()
-    file = open('shit_detection\marker\number.txt', 'w')    
-    screen.save(f'shit_detection\marker\screen{scale}.jpg')
-    scale+=1  
-    file.write(str(scale))
-    file.close()                                                        
+    file = open('shit_detection/marker/number.txt', 'w')    
+    screen.save(f'shit_detection/marker/screen{number}.jpg')
+    number+=1  
+    file.write(str(number))
+    file.close()
     comand=["python", 'printResults.py', "errorMarker", f'{scale}']
     Popen(comand)
     #label['text'] = 'метка\nне найдена'
