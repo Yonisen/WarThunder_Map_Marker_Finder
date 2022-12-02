@@ -11,8 +11,8 @@ try:
     file = open('масштаб.txt', 'r')
     scale = file.read()
     file.close()
-    if scale == "":
-        scale = "250"
+    if scale == "" or scale == "0":
+        scale = "1"
         file = open('масштаб.txt', 'w')
         file.write(scale)
         file.close()
