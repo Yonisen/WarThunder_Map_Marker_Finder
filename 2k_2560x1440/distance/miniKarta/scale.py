@@ -33,7 +33,6 @@ try:
             file.write('\n\n')
             traceback.print_exc(file=file, chain=True)
             traceback.print_exc()
-            file.write(str(e))
             file.close()                
 
     def close():
@@ -47,7 +46,6 @@ try:
             file.write('\n\n')
             traceback.print_exc(file=file, chain=True)
             traceback.print_exc()
-            file.write(str(e))
             file.close()            
 
     root = Tk()
@@ -97,7 +95,6 @@ try:
             file.write('\n\n')
             traceback.print_exc(file=file, chain=True)
             traceback.print_exc()
-            file.write(str(e))
             file.close()                
 
     timeout = 0
@@ -111,5 +108,4 @@ except Exception as e:
     file.write('\n\n')
     traceback.print_exc(file=file, chain=True)
     traceback.print_exc()
-    file.write(str(e))
     file.close()

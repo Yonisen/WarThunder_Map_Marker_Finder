@@ -8,5 +8,4 @@ except Exception as e:
     file.write('\n\n')
     traceback.print_exc(file=file, chain=True)
     traceback.print_exc()
-    file.write(str(e))
     file.close()
