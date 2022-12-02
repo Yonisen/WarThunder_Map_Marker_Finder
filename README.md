@@ -1,4 +1,4 @@
-# WarThunder_Map_Marker_Finder_3
+# WarThunder_Map_Marker_Finder_5
 
 Дальномер по желтой метке на карте. Работает на <b>любом</b> компьютере, даже на самом старом.<br>
 Использует скриншоты и оверлей. Основан на нейросетях. Все вычисления идут через процессор.
@@ -10,7 +10,7 @@
 - Откройте эту папку и перейдите в папку `distance`
 - Читайте `Инструкцию.txt` (в ней также рассказаны интересные особенности)
 
-## Замер дистанции (Ctrl+N)
+## Замер дистанции (t)
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen70.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen71.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen72.jpg">
@@ -34,6 +34,6 @@
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/karta1.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/karta2.jpg">
 
-## Установка масштаба карты (Ctrl+M)
+## Установка масштаба карты (Ctrl+N)
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen68.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen69.jpg">
