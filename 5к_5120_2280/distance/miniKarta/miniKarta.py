@@ -56,8 +56,30 @@ try:
     #comand=["python", 'scale.py']
     #Popen(comand)
 
+    comand=["python", 'signal1.py']  
+    Popen(comand)                                     
     print("\nПрограмма ожидает сочетания клавиш")
 
+    # def on_activate_CtrlN():
+        # print("n")
+
+    # def on_activate_CtrlM():
+        # print('m')
+
+    # def for_canonical(f):
+        # return lambda k: f(l.canonical(k))
+
+    # hotkey = keyboard.HotKey(
+        # keyboard.HotKey.parse('<ctrl>+n'),
+        # on_activate)
+    # with keyboard.Listener(
+            # on_press=for_canonical(hotkey.press),
+            # on_release=for_canonical(hotkey.release)) as l:
+        # l.join()  
+    # with keyboard.GlobalHotKeys({
+        # '<ctrl>+n': on_activate_CtrlN,
+        # '<ctrl>+m': on_activate_CtrlM}) as h:
+        # h.join()                              
     while True:
         file = open('signalDistance.txt', 'r')
         signalDistance = file.read()
