@@ -35,7 +35,7 @@ def checkDistance(modelTank, modelMarker):
         scale = file.read()
         file.close()
         if scale == "" or scale == "0":
-            scale = "1"
+            scale = "250"
             file = open('масштаб.txt', 'w')
             file.write(scale)
             file.close()
