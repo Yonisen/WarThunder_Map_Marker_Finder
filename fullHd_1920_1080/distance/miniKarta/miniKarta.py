@@ -107,7 +107,7 @@ try:
             print(1)
             if msg == "distance":
                 print("")
-                time.sleep(0.25)
+                time.sleep(0.3)
                 distanceFinder.checkDistance(modelTank, modelMarker)
             elif msg == "scale":
                 comand=["python", 'scale.py']
