@@ -1,8 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 import re
-import win32gui
-from threading import Timer
+#import win32gui
+#from threading import Timer
 import traceback
 try:
     ######################################################################
@@ -74,33 +74,6 @@ try:
     label.master.lift()
     label.master.wm_attributes("-topmost", True)
     label.pack()
-
-    def selectWindow():
-        try:
-            toplist = []
-            winlist = []
-            def enum_callback(hwnd, results):
-                winlist.append((hwnd, win32gui.GetWindowText(hwnd)))
-
-            win32gui.EnumWindows(enum_callback, toplist)
-            wt = [(hwnd, title) for hwnd, title in winlist if 'war thunder' in title.lower()]
-            # just grab the first window that matches
-            if wt !=[]:
-                
-                wt = wt[0]
-                # use the window handle to set focus
-                win32gui.SetForegroundWindow(wt[0])  
-        except Exception as e:
-            file = open('error.log', 'a')
-            file.write('\n\n')
-            traceback.print_exc(file=file, chain=True)
-            traceback.print_exc()
-            file.close()                
-
-    timeout = 0
-    t = Timer(timeout, selectWindow)
-    t.start()
-
     root.mainloop()
     ######################################################################
 except Exception as e:
