@@ -4,9 +4,8 @@ import time
 #import os
 #import signal
 #from threading import Timer
-#import asyncio
-#import win32gui                
-import win32api, win32con, pywintypes
+#import asyncio                
+import win32gui, win32api, win32con, pywintypes, win32com.client, pythoncom
 import traceback
 
 try:
@@ -88,18 +87,21 @@ try:
         label.pack()
         root.update() 
         
-    #toplist = []
-    #winlist = []
-    #def enum_callback(hwnd, results):
-        #winlist.append((hwnd, win32gui.GetWindowText(hwnd)))
+    toplist = []
+    winlist = []
+    def enum_callback(hwnd, results):
+        winlist.append((hwnd, win32gui.GetWindowText(hwnd)))
 
-    #win32gui.EnumWindows(enum_callback, toplist)
-    #wt = [(hwnd, title) for hwnd, title in winlist if 'war thunder' in title.lower()]
+    win32gui.EnumWindows(enum_callback, toplist)
+    wt = [(hwnd, title) for hwnd, title in winlist if 'war thunder' in title.lower()]
     # just grab the first window that matches
-    #if wt !=[]:
-        #wt = wt[0]
+    if wt !=[]:
+        wt = wt[0]
+        pythoncom.CoInitializeEx(0)
+        shell = win32com.client.Dispatch("WScript.Shell")
+        shell.SendKeys('%')
         # use the window handle to set focus
-        #win32gui.SetForegroundWindow(wt[0])    
+        win32gui.SetForegroundWindow(wt[0])    
     #pid = os.getpid()
     #os.kill(pid, signal.SIGTERM)
 
