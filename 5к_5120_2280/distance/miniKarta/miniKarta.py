@@ -104,7 +104,6 @@ try:
             # h.join()                              
         while True:
             msg = queue.get()
-            print(1)
             if msg == "distance":
                 print("")
                 time.sleep(0.3)

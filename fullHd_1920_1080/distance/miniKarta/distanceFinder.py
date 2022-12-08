@@ -167,6 +167,12 @@ def checkDistance(modelTank, modelMarker):
 
         ###буква A и буква E
 
+        objBukv = {
+            0: [1, 'a'],
+            1: [5, 'e'],
+            2: [7, 'g']
+        }
+
         abukva = cv2.imread("abukva.png")
         resAbukva = cv2.matchTemplate(karta,abukva,cv2.TM_CCOEFF_NORMED)
         a, b, d, top_left_a = cv2.minMaxLoc(resAbukva)
@@ -176,11 +182,31 @@ def checkDistance(modelTank, modelMarker):
         resEbukva = cv2.matchTemplate(karta,ebukva,cv2.TM_CCOEFF_NORMED)
         a, b, d, top_left_e = cv2.minMaxLoc(resEbukva)
         print("лев_верх_угол_буква_e",top_left_e)
-        ###
 
-
+        gbukva = cv2.imread("gbukva.png")
+        resGbukva = cv2.matchTemplate(karta,gbukva,cv2.TM_CCOEFF_NORMED)
+        a, b, d, top_left_g = cv2.minMaxLoc(resGbukva)
+        print("лев_верх_угол_буква_g",top_left_g)
         
-        line = (top_left_e[1] - top_left_a[1])/4
+        arrOfBukv = [top_left_a, top_left_e, top_left_g]
+        centOfBukv = (arrOfBukv[0][0] + arrOfBukv[1][0] + arrOfBukv[2][0])/3
+        maxError = 0
+        maxIndex = 2
+        for i in range(len(arrOfBukv)):
+            delta = abs(centOfBukv-arrOfBukv[i][0])
+            if delta>maxError:
+                maxError = delta
+                maxIndex = i
+        newArrOfBukv = []
+        for i in range(len(arrOfBukv)):
+            if i != maxIndex:
+                arr = [arrOfBukv[i][1], objBukv[i]]
+                newArrOfBukv.append(arr)
+        
+        ###
+       
+        line = abs(newArrOfBukv[0][0]-newArrOfBukv[1][0])/abs(newArrOfBukv[0][1][0]-newArrOfBukv[1][1][0])
+        print(f'для рассчета масштаба были взяты буквы {newArrOfBukv[0][1][1]} и {newArrOfBukv[1][1][1]}')
         if line == 0:
             showAError(scale)  
             return
