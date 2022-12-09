@@ -2,7 +2,7 @@ import traceback
 
 try:
     
-    def signal(queue):
+    def signal1(queue):
         try:
         
             import signal1
@@ -14,6 +14,19 @@ try:
             traceback.print_exc(file=file, chain=True)
             traceback.print_exc()
             file.close()    
+            
+    def signal3(queue):
+        try:
+        
+            import signal3
+            signal3.signal3(queue)
+            
+        except Exception as e:
+            file = open('error.log', 'a')
+            file.write('\n\n')
+            traceback.print_exc(file=file, chain=True)
+            traceback.print_exc()
+            file.close()                
     
     if __name__ == "__main__":
     
@@ -75,8 +88,10 @@ try:
         #Popen(comand)
         
         queue = Queue()
-        process = Process(target=signal, args=(queue,))
-        process.start()
+        process1 = Process(target=signal1, args=(queue,))
+        process1.start()
+        process3 = Process(target=signal3, args=(queue,))
+        process3.start()        
         
         #comand=["python", 'signal1.py']  
         #Popen(comand)                                                     

@@ -19,6 +19,8 @@ def signal1(queue):
             conf = []
             conf.append(config.get("Комбинации", "Замер дистанции"))
             conf.append(config.get("Комбинации", "Выставка масштаба"))
+            conf.append(config.get("Комбинации", "Замер дистанции мышь"))
+            conf.append(config.get("Комбинации", "Выставка масштаба мышь"))
             return conf
         conf = read_config("кнопки")
         
@@ -48,19 +50,22 @@ def signal1(queue):
                 file.close()     
         
 
-        findDistance = conf[0]
+        findDistance = conf[0] or conf[2]
         if findDistance == "":
-            print("кнопка для замера дистанции не назначена\nбудет использована клавиша t")
-            findDistance  = "t"
-        setScaling = conf[1]
+            print("кнопка для замера дистанции не назначена")
+        setScaling = conf[1] or conf[3]
         if setScaling == "":
-            print("кнопка для выставки масштаба не назначена\nбудет использована комбинация <ctrl>+n")
-            setScaling  = "<ctrl>+n"
+            print("кнопка для выставки масштаба не назначена")
         
-        with GlobalHotKeys({
-            findDistance: on_activate_t,
-            setScaling: on_activate_cn}) as h:
-            h.join()
+        obj = {}
+        if conf[0]:
+            obj[conf[0]] = on_activate_t
+        if conf[1]:
+            obj[conf[1]] = on_activate_cn
+        
+        if obj != {}:
+            with GlobalHotKeys(obj) as h:
+                h.join()
             
     except Exception as e:
         file = open('error.log', 'a')
