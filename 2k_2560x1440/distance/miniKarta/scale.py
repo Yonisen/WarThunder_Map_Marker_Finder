@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import re
-import win32gui, win32com.client, pythoncom
+import win32gui
 from threading import Timer
 import traceback
 try:   
@@ -87,9 +87,6 @@ try:
             # just grab the first window that matches
             if wt !=[]:
                 wt = wt[0]
-                pythoncom.CoInitializeEx(0)
-                shell = win32com.client.Dispatch("WScript.Shell")
-                shell.SendKeys('%')
                 # use the window handle to set focus
                 win32gui.SetForegroundWindow(wt[0])  
         except Exception as e:
