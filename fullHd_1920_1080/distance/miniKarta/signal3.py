@@ -17,7 +17,7 @@ def signal3(queue):
             conf.append(config.get("Комбинации", "Замер дистанции мышь"))
             conf.append(config.get("Комбинации", "Выставка масштаба мышь"))
             return conf
-        conf = read_config("кнопки")
+        conf = read_config("кнопки.ini")
         
         def on_click(x, y, button, pressed):
             try:
