@@ -1,7 +1,10 @@
 # WarThunder_Map_Marker_Finder_21
 
 Дальномер по желтой метке на карте. Работает на <b>любом</b> компьютере, даже на самом старом.<br>
-Использует скриншоты и оверлей. Основан на нейросети YOLOv5 от ultralitics. Все вычисления идут через процессор.
+Использует скриншоты и оверлей. Основан на нейросети YOLOv5 от ultralitics.<br>
+Все вычисления идут через процессор.<br>
+
+English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder">here</a>
 
 ## Установка
 
