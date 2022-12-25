@@ -12,7 +12,7 @@ def signal3(queue):
         
         def read_config(name):
             config = configparser.ConfigParser()
-            config.read(name)
+            config.read(name, encoding='utf-8')
             conf = []
             conf.append(config.get("Комбинации", "Замер дистанции мышь"))
             conf.append(config.get("Комбинации", "Выставка масштаба мышь"))
