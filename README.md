@@ -40,3 +40,7 @@ English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Ra
 ## Установка масштаба карты (Ctrl+N)
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen68.jpg">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen69.jpg">
+
+### Поддержать
+Вы можете поддержать меня здесь:<br>
+https://www.donationalerts.com/r/yonisen
