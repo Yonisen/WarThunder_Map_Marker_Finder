@@ -57,12 +57,6 @@ try:
             conf['scale_x'] = config.get("Combinations", "scale_x")
             conf['scale_y'] = config.get("Combinations", "scale_y")
             
-            #conf.append(config.get("Combinations", "Distance measurement"))
-            #conf.append(config.get("Combinations", "Scale setting"))
-            #conf.append(config.get("Combinations", "Distance measurement mouse"))
-            #conf.append(config.get("Combinations", "Scale setting mouse"))
-            #conf.append(config.get("Combinations", "Resolution"))
-            
             return conf
             
         except Exception as e:
