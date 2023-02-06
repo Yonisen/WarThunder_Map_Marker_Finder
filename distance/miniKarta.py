@@ -38,16 +38,7 @@ try:
         #from tkinter import *
         from subprocess import Popen
         from multiprocessing import Queue, Process 
-        import psutil
-        from contextlib import suppress
-        from threading import Timer
-        
-        def terminatePrintResults():
-            for process in psutil.process_iter():
-                with suppress(psutil.NoSuchProcess, ProcessLookupError):
-                    if process.name() == 'python.exe' and 'code/printResults.py' in process.cmdline():
-                        #print(process.pid)
-                        process.terminate()        
+
     
         print("Инициализация нейросети")
 
@@ -90,16 +81,16 @@ try:
                                                    
         print("\nПрограмма ожидает сочетания клавиш")
 
-                          
+        process = 0                  
+        
         while True:
             msg = queue.get()
             if msg == "distance":
                 print("")
-                timeout = 0
-                t = Timer(timeout, terminatePrintResults)
-                t.start()                 
+                if process != 0:
+                    process.terminate()
                 time.sleep(0.3)
-                distanceFinder.checkDistance(model)
+                process = distanceFinder.checkDistance(model)
             elif msg == "scale":
                 comand=["python", 'code/scale.py']
                 Popen(comand)                        
