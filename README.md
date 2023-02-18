@@ -13,36 +13,30 @@ English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Ra
 - Читайте `Инструкцию.txt` (в ней также рассказаны интересные особенности)
 
 ## Замер дистанции (t)
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen70.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen71.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen72.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen15.png">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen15_1.png">
 
 ## Что происходит
 Создается скриншот<br>
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/karta0.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map15.png">
 
-Нейросеть1 ищет метку вашего танка на скриншоте<br>
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/karta1.jpg">
-
-Нейросеть2 ищет желтую метку на скриншоте<br>
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/karta2.jpg">
+Нейросеть ищет метки на скриншоте<br>
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map15_1.jpg">
 
 
 ## Еще пример
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/screen61.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/screen62.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/screen63.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/karta0.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/karta1.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/2/karta2.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen25.png">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen25_1.png">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map25.png">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map25_1.jpg">
 
 ## Установка масштаба карты (Ctrl+N)
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen68.jpg">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen69.jpg">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen3.png">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen4.png">
 
 ## Настройка программы
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen1.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/1/screen2.png">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen1.png">
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen2.png">
 
 ### Поддержать
 Вы можете поддержать меня здесь:<br>
