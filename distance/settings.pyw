@@ -9,7 +9,7 @@ import re
 try:
 
     window = tk.Tk()
-    x = (window.winfo_screenwidth() - 797) / 2
+    x = (window.winfo_screenwidth() - 665) / 2
     y = (window.winfo_screenheight() - 510) / 2
     window.geometry("+%d+%d" % (x, y))
     window.title("Settings")
@@ -51,8 +51,6 @@ try:
             conf['resolution'] = config.get("Combinations", "Resolution")
             conf['print_x'] = config.get("Combinations", "print_x")
             conf['print_y'] = config.get("Combinations", "print_y")
-            conf['print_width'] = config.get("Combinations", "print_width")
-            conf['print_height'] = config.get("Combinations", "print_height")
             conf['print_time'] = config.get("Combinations", "print_time")
             conf['print_distance'] = config.get("Combinations", "print_distance")
             conf['print_azimuth'] = config.get("Combinations", "print_azimuth")
@@ -125,8 +123,6 @@ try:
             config.set("Combinations", "Resolution", lang.get())
             config.set("Combinations", "print_x", entry_print_x.get())
             config.set("Combinations", "print_y", entry_print_y.get())
-            config.set("Combinations", "print_width", entry_print_width.get())
-            config.set("Combinations", "print_height", entry_print_height.get())
             config.set("Combinations", "print_time", entry_print_time.get())
             config.set("Combinations", "print_distance", str(print_distance.get()))
             config.set("Combinations", "print_azimuth", str(print_azimuth.get()))
@@ -174,12 +170,6 @@ try:
             
             entry_print_y.delete(0, END)
             entry_print_y.insert(0, '15')
-
-            entry_print_width.delete(0, END)
-            entry_print_width.insert(0, '173')  
-
-            entry_print_height.delete(0, END)
-            entry_print_height.insert(0, '90')            
             
             entry_print_time.delete(0, END)
             entry_print_time.insert(0, '7')            
@@ -205,7 +195,7 @@ try:
         # Создает ярлык с текстом из списка ярлыков.
         label = tk.Label(master=frm_form, text=text, font=('Roboto','14'))
         # Создает текстовое поле которая соответствует ярлыку.
-        entry = tk.Entry(master=frm_form, width=55, font=('Roboto','14'))
+        entry = tk.Entry(master=frm_form, width=38, font=('Roboto','14'))
         # Использует менеджер геометрии grid для размещения ярлыков и
         # текстовых полей в строку, чей индекс равен idx.
         label.grid(row=idx, column=0, sticky="e", pady=5)
@@ -269,18 +259,6 @@ try:
     entry_print_y = tk.Entry(master=distance_form_2, width=7, font=('Roboto','14'))
     entry_print_y.grid(row=0, column=3)
     entry_print_y.insert(0, conf['print_y'])
-    
-    label_print_width = tk.Label(master=distance_form_2, text="Ширина", font=('Roboto','14'))
-    label_print_width.grid(row=0, column=4, pady=5)
-    entry_print_width = tk.Entry(master=distance_form_2, width=7, font=('Roboto','14'))
-    entry_print_width.grid(row=0, column=5) 
-    entry_print_width.insert(0, conf['print_width'])    
-
-    label_print_height = tk.Label(master=distance_form_2, text="Высота", font=('Roboto','14'))
-    label_print_height.grid(row=0, column=6, pady=5)
-    entry_print_height = tk.Entry(master=distance_form_2, width=7, font=('Roboto','14'))
-    entry_print_height.grid(row=0, column=7)      
-    entry_print_height.insert(0, conf['print_height'])   
 
     print_distance = IntVar()
     print_distance.set(int(conf['print_distance']))
