@@ -14,11 +14,13 @@ def read_config(name):
     return resolution
 
 resolutionObject = {
-    '0': [1034,436,329,329,329,329], #[x,y,w,h,size,sizeReal]
-    '1': [1462,622,456,456,456,456],
-    '2': [1952,832,605,605,465,605],
-    '3': [2940,1260,900,900,480,900],
-    '4': [3924,1684,1196,1196,460,1196],
+    '0': [1034,436,329,329,329,329], #1366x768    #[x,y,w,h,size,sizeReal]
+    '1': [1234,604,444,444,444,444], #1680x1050
+    '2': [1462,622,456,456,456,456], #1920x1080
+    #'3': [1034,436,329,329,329,329], #2560x1080
+    '3': [1952,832,605,605,465,605], #2560x1440
+    '4': [2940,1260,900,900,480,900], #3840x2160
+    '5': [3924,1684,1196,1196,460,1196], #5120x2280
 }
 
 def checkDistance(model):
@@ -41,7 +43,7 @@ def checkDistance(model):
         #screen.save("karta.png")
         karta = cv2.imread("Map.png")
         
-        if int(resolution) > 1:
+        if int(resolution) > 2:
             screen = screen.resize((size, size))
         
         #im1 = Image.fromarray(im1)
@@ -100,14 +102,14 @@ def checkDistance(model):
 
         tankPosition = ((tankArrow[2]+tankArrow[0])/2, (tankArrow[3]+tankArrow[1])/2)            
         
-        if int(resolution) > 1:
+        if int(resolution) > 2:
             tankPosition = (tankPosition[0]/sizeK, tankPosition[1]/sizeK)
             
         print("Позиция танка",tankPosition)
         
         markerPosition = ((yellowMarker[2]+yellowMarker[0])/2, (yellowMarker[3]+yellowMarker[1])/2)
         
-        if int(resolution) > 1:
+        if int(resolution) > 2:
             markerPosition = (markerPosition[0]/sizeK, markerPosition[1]/sizeK)
         
         print("Центр желтого маркера",markerPosition)

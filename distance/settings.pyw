@@ -10,7 +10,7 @@ try:
 
     window = tk.Tk()
     x = (window.winfo_screenwidth() - 797) / 2
-    y = (window.winfo_screenheight() - 370) / 2
+    y = (window.winfo_screenheight() - 510) / 2
     window.geometry("+%d+%d" % (x, y))
     window.title("Settings")
 
@@ -163,7 +163,7 @@ try:
             frm_form.winfo_children()[7].delete(0, END)
             frm_form.winfo_children()[7].insert(0, '')
             
-            lang.set('1')       
+            lang.set('2')       
             print_distance.set('1')
             print_azimuth.set('1')
             print_scale.set('1')
@@ -216,7 +216,7 @@ try:
     frm_form.winfo_children()[5].insert(0, conf['distance_measurement_mouse'])
     frm_form.winfo_children()[7].insert(0, conf['scale_setting_mouse'])
 
-    resolution = conf['resolution'] or "1"
+    resolution = conf['resolution'] or "2"
     lang = StringVar(value=resolution)
 
     label_header_resolution = tk.Label(master=resolution_form, text="Разрешение", font=('Roboto','14'))
@@ -224,14 +224,18 @@ try:
 
     a0_btn = tk.Radiobutton(master=resolution_form, text='1366x768', value='0', variable=lang, font=('Roboto','14'))
     a0_btn.pack(anchor=W)
-    a1_btn = tk.Radiobutton(master=resolution_form, text='1920x1080', value='1', variable=lang, font=('Roboto','14'))
-    a1_btn.pack(anchor=W)
-    a2_btn = tk.Radiobutton(master=resolution_form, text='2560x1440', value='2', variable=lang, font=('Roboto','14'))
+    a1_btn = tk.Radiobutton(master=resolution_form, text='1680x1050', value='1', variable=lang, font=('Roboto','14'))
+    a1_btn.pack(anchor=W)    
+    a2_btn = tk.Radiobutton(master=resolution_form, text='1920x1080', value='2', variable=lang, font=('Roboto','14'))
     a2_btn.pack(anchor=W)
-    a3_btn = tk.Radiobutton(master=resolution_form, text='3840x2160', value='3', variable=lang, font=('Roboto','14'))
+    #a3_btn = tk.Radiobutton(master=resolution_form, text='2560x1080', value='3', variable=lang, font=('Roboto','14'))
+    #a3_btn.pack(anchor=W)     
+    a3_btn = tk.Radiobutton(master=resolution_form, text='2560x1440', value='3', variable=lang, font=('Roboto','14'))
     a3_btn.pack(anchor=W)
-    a4_btn = tk.Radiobutton(master=resolution_form, text='5120x2280', value='4', variable=lang, font=('Roboto','14'))
+    a4_btn = tk.Radiobutton(master=resolution_form, text='3840x2160', value='4', variable=lang, font=('Roboto','14'))
     a4_btn.pack(anchor=W)
+    a5_btn = tk.Radiobutton(master=resolution_form, text='5120x2280', value='5', variable=lang, font=('Roboto','14'))
+    a5_btn.pack(anchor=W)
 
     distance_form_1 = tk.Frame(master=distance_form)
     distance_form_1.pack(anchor=W)
