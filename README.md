@@ -9,6 +9,8 @@ English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Ra
 ## Установка
 
 - Скачайте архив
+<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen5.png">
+
 - Распакуйте архив и перейдите в папку `distance`
 - Читайте `Инструкцию.txt` (в ней также рассказаны интересные особенности)
 
