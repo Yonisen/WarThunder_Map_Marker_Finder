@@ -138,7 +138,6 @@ try:
                 time.sleep(0.3)
                 distanceFinder.checkDistance(model, queue1)
             elif msg == "scale":
-                print("")
                 comand=["python", 'code/scale.py']
                 Popen(comand)                        
             elif msg == "skip":

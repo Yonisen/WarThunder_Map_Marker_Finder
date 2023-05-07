@@ -53,6 +53,7 @@ try:
         try:
             res = entry.get()
             if res != "":
+                print('')
                 screen = pyautogui.screenshot('Map.png', region=(resolutionX, resolutionY, resolutionW, resolutionH))
                 karta = cv2.imread("Map.png")
                 
