@@ -54,7 +54,6 @@ try:
             conf['print_time'] = config.get("Combinations", "print_time")
             conf['print_distance'] = config.get("Combinations", "print_distance")
             conf['print_azimuth'] = config.get("Combinations", "print_azimuth")
-            conf['print_scale'] = config.get("Combinations", "print_scale")
             conf['print_transparent'] = config.get("Combinations", "print_transparent")
             conf['scale_x'] = config.get("Combinations", "scale_x")
             conf['scale_y'] = config.get("Combinations", "scale_y")
@@ -83,17 +82,26 @@ try:
         file = open('code/pid3.txt', 'a+')
         file.seek(0)
         pid3 = file.read()
-        file.close()         
+        file.close() 
+        
+        file = open('code/pid5.txt', 'a+')
+        file.seek(0)
+        pid5 = file.read()
+        file.close()                                           
         
         if pid1 == "":
             pid1 = "0"
         
         if pid3 == "":
-            pid3 = "0"       
+            pid3 = "0" 
+            
+        if pid5 == "":
+            pid5 = "0"                       
         
         processes = []
         processes.append(int(pid1))
         processes.append(int(pid3))
+        processes.append(int(pid5))    
         
         for process in processes:
             
@@ -126,7 +134,6 @@ try:
             config.set("Combinations", "print_time", entry_print_time.get())
             config.set("Combinations", "print_distance", str(print_distance.get()))
             config.set("Combinations", "print_azimuth", str(print_azimuth.get()))
-            config.set("Combinations", "print_scale", str(print_scale.get()))
             config.set("Combinations", "print_transparent", str(print_transparent.get()))
             config.set("Combinations", "scale_x", entry_scale_x.get())
             config.set("Combinations", "scale_y", entry_scale_y.get())            
@@ -162,8 +169,7 @@ try:
             lang.set('3')       
             print_distance.set('1')
             print_azimuth.set('1')
-            print_scale.set('1')
-            print_transparent.set('0')
+            print_transparent.set('1')
             
             entry_print_x.delete(0, END)
             entry_print_x.insert(0, '15')
@@ -195,7 +201,7 @@ try:
         # Создает ярлык с текстом из списка ярлыков.
         label = tk.Label(master=frm_form, text=text, font=('Roboto','14'))
         # Создает текстовое поле которая соответствует ярлыку.
-        entry = tk.Entry(master=frm_form, width=38, font=('Roboto','14'))
+        entry = tk.Entry(master=frm_form, width=28, font=('Roboto','14'))
         # Использует менеджер геометрии grid для размещения ярлыков и
         # текстовых полей в строку, чей индекс равен idx.
         label.grid(row=idx, column=0, sticky="e", pady=5)
@@ -269,11 +275,6 @@ try:
     print_azimuth.set(int(conf['print_azimuth']))
     checkbutton_print_azimuth = tk.Checkbutton(master=distance_form_3, text="Азимут", font=('Roboto','14'), variable=print_azimuth)
     checkbutton_print_azimuth.grid(row=0, column=1)
-
-    print_scale = IntVar()
-    print_scale.set(int(conf['print_scale']))
-    checkbutton_print_scale = tk.Checkbutton(master=distance_form_3, text="Масштаб", font=('Roboto','14'), variable=print_scale)
-    checkbutton_print_scale.grid(row=0, column=2) 
 
     print_transparent = IntVar()
     print_transparent.set(int(conf['print_transparent']))

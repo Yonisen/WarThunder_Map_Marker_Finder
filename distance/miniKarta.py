@@ -35,7 +35,23 @@ try:
             file.write('\n\n')
             traceback.print_exc(file=file, chain=True)
             traceback.print_exc()
-            file.close()                
+            file.close()
+            
+    def printResults(queue1):
+        try:
+        
+            import printResults
+            file = open('code/pid5.txt', 'w')
+            file.write(str(os.getpid()))
+            file.close()            
+            printResults.printResults(queue1)
+            
+        except Exception as e:
+            file = open('error.log', 'a')
+            file.write('\n\n')
+            traceback.print_exc(file=file, chain=True)
+            traceback.print_exc()
+            file.close()                             
     
     if __name__ == "__main__":
     
@@ -84,46 +100,49 @@ try:
         #модели нейросетей готовы к работе
 
         queue = 0
+        queue1 = 0
         process1 = 0
         process3 = 0
+        process5 = 0
         
         def startChilds():      
-            global queue, process1, process3
+            global queue, queue1, process1, process3, process5
             queue = Queue()
+            queue1 = Queue()
             process1 = Process(target=signal1, args=(queue,))
             process1.start()
             process3 = Process(target=signal3, args=(queue,))
-            process3.start()        
+            process3.start()      
+            process5 = Process(target=printResults, args=(queue1,))
+            process5.start()             
             checkSignals()
             
         def checkSignals():
             
-            if (process1.exitcode != 0 and process1.exitcode != None) or (process3.exitcode != 0 and process3.exitcode != None):
-                queue1 = queue
+            if (process1.exitcode != 0 and process1.exitcode != None) or (process3.exitcode != 0 and process3.exitcode != None) or (process5.exitcode != 0 and process5.exitcode != None):
+                queue_alt = queue
                 startChilds()
-                queue1.put("skip")
+                queue_alt.put("skip")
             else:
                 Timer(0.1, checkSignals).start()
         
-        startChilds()
-                 
-                                                   
-        print("\nПрограмма ожидает сочетания клавиш")
-
-        process = 0                  
+        startChilds()             
+                                                                 
+        print("\nПрограмма ожидает сочетания клавиш")                                        
         
         while True:
             msg = queue.get()
             if msg == "distance":
                 print("")
-                if process != 0:
-                    process.terminate()
+                queue1.put(['clear'])
                 time.sleep(0.3)
-                process = distanceFinder.checkDistance(model)
+                distanceFinder.checkDistance(model, queue1)
             elif msg == "scale":
+                print("")
                 comand=["python", 'code/scale.py']
                 Popen(comand)                        
-            
+            elif msg == "skip":
+                continue            
             
 except Exception as e:
     file = open('error.log', 'a')

@@ -1,9 +1,7 @@
 #from PIL import ImageGrab
 #from PIL import Image
-import cv2
 import numpy as np
 import math
-from subprocess import Popen
 import pyautogui
 import configparser
 
@@ -24,7 +22,7 @@ resolutionObject = {
     '6': [3924,1684,1196,1196,460,1196], #5120x2280
 }
 
-def checkDistance(model):
+def checkDistance(model, queue1):
   
         ######################################################################
         resolution = read_config("code/buttons.ini")
@@ -42,7 +40,6 @@ def checkDistance(model):
         #screenScale = ImageGrab.grab(bbox =(1745, 902, 1905, 1062))
          
         #screen.save("karta.png")
-        karta = cv2.imread("Map.png")
         
         if int(resolution) > 3:
             screen = screen.resize((size, size))
@@ -60,11 +57,11 @@ def checkDistance(model):
         scale = file.read()
         file.close()
         if scale == "" or scale == "0":
-            scale = "250"
+            scale = "5"
             file = open('code/scale.txt', 'w')
             file.write(scale)
             file.close()
-        scale = int(scale)
+        scale = float(scale)
         #numberResults = modelNumber(screenScale, size=160)
         #print(numberResults.xyxy[0])
         #numberList = numberResults.xyxy[0].numpy().tolist()
@@ -96,10 +93,10 @@ def checkDistance(model):
                 yellowMarker = i.numpy(force=True)               
         
         if type(tankArrow) is int:
-            return showErrorArrow(scale, screen)
+            return showErrorArrow(screen, queue1)
             
         if type(yellowMarker) is int:
-            return showErrorMarker(scale, screen)
+            return showErrorMarker(screen, queue1)
 
         tankPosition = ((tankArrow[2]+tankArrow[0])/2, (tankArrow[3]+tankArrow[1])/2)            
         
@@ -129,120 +126,30 @@ def checkDistance(model):
 
 
         #катеты по двум точкам
-        katet1 = abs(tankPosition[0] - markerPosition[0])
-        katet2 = abs(tankPosition[1] - markerPosition[1])
+        katet1 = markerPosition[0] - tankPosition[0]
+        katet2 = tankPosition[1] - markerPosition[1]
 
 
         ######################################################################
         #дистанция между двумя точками в пикселях
         gipotenuza = np.hypot(katet1, katet2)
         ######################################################################
-
-
-        angel = 0
-
-        if katet1==0 : #обходим деление на ноль
-            angel = 90 #угол между двумя катетами
-        else:
-            angel = math.degrees(math.atan(katet2/katet1)) #тот же угол
-
-        ######################################################################
-        #получаем азимут
-        if markerPosition[0]>=tankPosition[0] and markerPosition[1]<=tankPosition[1] :
-            
-            angel = 90-angel    
-            
-        elif markerPosition[0]>=tankPosition[0] and markerPosition[1]>tankPosition[1] :
-            
-            angel = 90+angel
-            
-        elif markerPosition[0]<tankPosition[0] and markerPosition[1]>=tankPosition[1] :
-            
-            angel = 270-angel
-            
-        elif markerPosition[0]<tankPosition[0] and markerPosition[1]<tankPosition[1] :
-            
-            angel = 270+angel
+        
+        angel = 2*math.pi + psi if (psi := math.atan2(katet1, katet2)) < 0.0 else psi
+        angel = math.degrees(angel)
             
         #азимут найден
         ######################################################################
-
-
-
-
-
-        ######################################################################
-        #определяем длину единичного отрезка в пикселях
-        #по сути тот отрезок, что улитка на миникарте помечает
-        #но он всегда разный, поэтому я получил его из
-        #взаимного расположения букв по краям миникарты
-
-        ###буква A и буква E
-
-        objBukv = {
-            0: [1, 'a'],
-            1: [5, 'e'],
-            2: [7, 'g']
-        }
-
-        abukva = cv2.imread(f"../data/resolution_{resolution}/aletter.png")
-        resAbukva = cv2.matchTemplate(karta,abukva,cv2.TM_CCOEFF_NORMED)
-        a, b, d, top_left_a = cv2.minMaxLoc(resAbukva)
-        print("лев_верх_угол_буква_a",top_left_a)
-
-        ebukva = cv2.imread(f"../data/resolution_{resolution}/eletter.png")
-        resEbukva = cv2.matchTemplate(karta,ebukva,cv2.TM_CCOEFF_NORMED)
-        a, b, d, top_left_e = cv2.minMaxLoc(resEbukva)
-        print("лев_верх_угол_буква_e",top_left_e)
-
-        gbukva = cv2.imread(f"../data/resolution_{resolution}/gletter.png")
-        resGbukva = cv2.matchTemplate(karta,gbukva,cv2.TM_CCOEFF_NORMED)
-        a, b, d, top_left_g = cv2.minMaxLoc(resGbukva)
-        print("лев_верх_угол_буква_g",top_left_g)
-        
-        arrOfBukv = [top_left_a, top_left_e, top_left_g]
-        centOfBukv = (arrOfBukv[0][0] + arrOfBukv[1][0] + arrOfBukv[2][0])/3
-        maxError = 0
-        maxIndex = 2
-        for i in range(len(arrOfBukv)):
-            delta = abs(centOfBukv-arrOfBukv[i][0])
-            if delta>maxError:
-                maxError = delta
-                maxIndex = i
-        newArrOfBukv = []
-        for i in range(len(arrOfBukv)):
-            if i != maxIndex:
-                arr = [arrOfBukv[i][1], objBukv[i]]
-                newArrOfBukv.append(arr)
-        
-        ###
-       
-        line = abs(newArrOfBukv[0][0]-newArrOfBukv[1][0])/abs(newArrOfBukv[0][1][0]-newArrOfBukv[1][1][0])
-        print(f'для рассчета масштаба были взяты буквы {newArrOfBukv[0][1][1]} и {newArrOfBukv[1][1][1]}')
-        if line == 0:
-            return showAError(scale)  
-        ######################################################################
-        
+      
         #получаем дистанцию в метрах
-        distance = gipotenuza/line*scale
+        distance = gipotenuza*scale
         print("Азимут",angel)
         print("Дистанция",distance)
         
-
-        #proc = subprocess.Popen(command, startupinfo=startupinfo)
-        comand=["python", 'code/printResults.py', "true", f'{round(distance)}', f'{round(angel,1)}', f'{scale}']
-        #Popen(comand, stdin=None, stdout=None, stderr=None, creationflags = 0x08000000)
-        process = Popen(comand)
-        return process
-        #os.system(f'python printResults.py {round(distance)} {round(angel,1)}')
-        #label['text'] = f'Дист: {round(distance)}\nАзимут: {round(angel,1)}'
-        #if label['bg'] == "yellow":
-        #    label['bg'] = "orange"
-        #else:
-        #    label['bg'] = "yellow"
-        #root.update()
+        queue1.put(['printResults', f'{round(distance)}', f'{round(angel,1)}'])
+        return
         ######################################################################
-def showErrorArrow(scale, screen):
+def showErrorArrow(screen, queue1):
     file = open('not_found/your_tank_not_found/number.txt', 'r')
     number = file.read()
     if number == "":
@@ -254,17 +161,10 @@ def showErrorArrow(scale, screen):
     number+=1
     file.write(str(number))
     file.close()
-    comand=["python", 'code/printResults.py', "errorArrow", f'{scale}']
-    process = Popen(comand)
-    return process
-    #label['text'] = 'твой танк\nне найден'
-    #if label['bg'] == "yellow":
-    #    label['bg'] = "orange"
-    #else:
-    #    label['bg'] = "yellow"
-    #root.update()
+    queue1.put(['errorArrow'])
+    return
 
-def showErrorMarker(scale, screen):
+def showErrorMarker(screen, queue1):
     file = open('not_found/mark_not_found/number.txt', 'r')
     number = file.read()
     if number == "":
@@ -276,23 +176,5 @@ def showErrorMarker(scale, screen):
     number+=1  
     file.write(str(number))
     file.close()
-    comand=["python", 'code/printResults.py', "errorMarker", f'{scale}']
-    process = Popen(comand)
-    return process
-    #label['text'] = 'метка\nне найдена'
-    #if label['bg'] == "yellow":
-    #    label['bg'] = "orange"
-    #else:
-    #    label['bg'] = "yellow"
-    #root.update()
-def showAError(scale):
-    comand=["python", 'code/printResults.py', "AError", f'{scale}']
-    process = Popen(comand)
-    return process
-#def showErrorNumber(label, root):
-#    label['text'] = 'масштаб\nкарты\nне определен'
-#    if label['bg'] == "yellow":
-#        label['bg'] = "orange"
-#    else:
-#        label['bg'] = "yellow"
-#    root.update()
+    queue1.put(['errorMarker'])
+    return
