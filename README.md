@@ -1,4 +1,6 @@
-# WarThunder_Map_Marker_Finder_33
+# WarThunder_Map_Marker_Finder_35
+
+<sub>15.05.2023 Чекни в самом низу, если ты здесь не впервые</sub>
 
 Дальномер по желтой метке на карте. Работает на <b>любом</b> компьютере, даже на самом старом.<br>
 Использует скриншоты и оверлей. Основан на нейросети YOLOv5 от ultralitics.<br>
@@ -39,6 +41,6 @@ English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Ra
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen1.png">
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen2.png">
 
-### Поддержать
-Вы можете поддержать меня здесь:<br>
-https://www.donationalerts.com/r/yonisen
+### Дополнительно
+Я написал еще одну программу, она на голову выше дальномера (не бесплатно разумеется)<br>
+Если хочешь узнать больше, пиши мне в дискорде Yonisen#3035
