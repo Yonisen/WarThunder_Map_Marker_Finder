@@ -42,5 +42,5 @@ English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Ra
 <img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen2.png">
 
 ### Дополнительно
-Я написал еще одну программу, она на голову выше дальномера (не бесплатно разумеется)<br>
+Я написал еще одну программу, бомбовый прицел (не бесплатный разумеется)<br>
 Если хочешь узнать больше, пиши мне в дискорде Yonisen#3035
