@@ -16,11 +16,12 @@ resolutionObject = {
     '1': [1054,514,384,384,384,384], #1440x900
     '2': [1234,604,444,444,444,444], #1680x1050
     '3': [1462,622,456,456,456,456], #1920x1080
+    '4': [1462,742,456,456,456,456], #1920x1200
     #'3': [1034,436,329,329,329,329], #2560x1080
-    '4': [1955,835,605,605,465,605], #2560x1440
-    '5': [2835,835,605,605,465,605], #3440x1440
-    '6': [2940,1260,900,900,480,900], #3840x2160
-    '7': [3924,1684,1196,1196,460,1196], #5120x2280
+    '5': [1955,835,605,605,465,605], #2560x1440
+    '6': [2835,835,605,605,465,605], #3440x1440
+    '7': [2940,1260,900,900,480,900], #3840x2160
+    '8': [3924,1684,1196,1196,460,1196], #5120x2280
 }
 
 def checkDistance(model, queue1):
@@ -42,7 +43,9 @@ def checkDistance(model, queue1):
          
         #screen.save("karta.png")
         
-        if int(resolution) > 3:
+        resizing = size != sizeReal
+        
+        if resizing:
             screen = screen.resize((size, size))
         
         #im1 = Image.fromarray(im1)
@@ -101,14 +104,14 @@ def checkDistance(model, queue1):
 
         tankPosition = ((tankArrow[2]+tankArrow[0])/2, (tankArrow[3]+tankArrow[1])/2)            
         
-        if int(resolution) > 3:
+        if resizing:
             tankPosition = (tankPosition[0]/sizeK, tankPosition[1]/sizeK)
             
         print("Позиция танка",tankPosition)
         
         markerPosition = ((yellowMarker[2]+yellowMarker[0])/2, (yellowMarker[3]+yellowMarker[1])/2)
         
-        if int(resolution) > 3:
+        if resizing:
             markerPosition = (markerPosition[0]/sizeK, markerPosition[1]/sizeK)
         
         print("Центр желтого маркера",markerPosition)
