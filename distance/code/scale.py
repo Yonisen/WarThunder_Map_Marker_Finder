@@ -256,9 +256,6 @@ def main():
                 else:
                     t = Timer(n_seconds, process_selection, [elements[current_selection]])
                     t.start()
-            elif keyboard.is_pressed("ctrl+0"):
-                some_data = {"lol": 123}
-                state_queue.put(some_data)
 
     keyboard.on_press(on_key_event)
 
