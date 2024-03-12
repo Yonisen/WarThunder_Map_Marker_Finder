@@ -1,0 +1,318 @@
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: x1
+x1
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: right
+right
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 90, in process_selection
+    label["text"] = f"ошибка"
+    ^^^^^
+NameError: name 'label' is not defined
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 163, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 167, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\miniKarta.py", line 137, in <module>
+    scale_check = threading.Thread(target=scale)
+                  ^^^^^^^^^
+NameError: name 'threading' is not defined
