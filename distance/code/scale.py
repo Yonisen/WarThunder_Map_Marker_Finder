@@ -224,13 +224,10 @@ try:
         plus = 'ctrl+='  # Комбинация клавиш для выбора элемента
         minus = 'ctrl+-'
         t = None
-        win = None
 
         def on_key_event(event):
             nonlocal current_selection
             nonlocal t
-            nonlocal win
-            global Window
 
             if event.event_type == keyboard.KEY_DOWN:
                 if keyboard.is_pressed(plus):
