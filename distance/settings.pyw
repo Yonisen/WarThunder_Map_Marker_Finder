@@ -98,11 +98,8 @@ try:
         if pid5 == "":
             pid5 = "0"                       
         
-        processes = []
-        processes.append(int(pid1))
-        processes.append(int(pid3))
-        processes.append(int(pid5))    
-        
+        processes = [int(pid1), int(pid3), int(pid5)]
+
         for process in processes:
             
             with suppress(psutil.NoSuchProcess, ProcessLookupError):

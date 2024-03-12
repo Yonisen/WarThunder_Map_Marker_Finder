@@ -1,0 +1,15 @@
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 27, in <module>
+    conf = read_config("code/buttons.ini")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 21, in read_config
+    conf['scale_x'] = config.get("Combinations", "scale_x")
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\configparser.py", line 797, in get
+    d = self._unify_values(section, vars)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\configparser.py", line 1168, in _unify_values
+    raise NoSectionError(section) from None
+configparser.NoSectionError: No section: 'Combinations'

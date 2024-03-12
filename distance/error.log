@@ -316,3 +316,21 @@ Traceback (most recent call last):
     scale_check = threading.Thread(target=scale)
                   ^^^^^^^^^
 NameError: name 'threading' is not defined
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 159, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 159, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 159, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
