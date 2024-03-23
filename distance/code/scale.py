@@ -122,9 +122,6 @@ def process_selection(selection):
         file.close()
 
 
-######################################################################
-# Создание окна масштаба
-
 file = open('code/scale.txt', 'r')
 scale = file.read()
 file.close()
@@ -164,6 +161,8 @@ def selectWindow(event=1):
         file.close()
 
 
+######################################################################
+# Создание окна масштаба
 def window():
     def update_window(root_window, label_text, selection_label):
         try:
@@ -218,7 +217,7 @@ def window():
 
 
 def main():
-    elements = [140, 150, 160, 170, 180, 185, 190, 200, 225, 250, 275, 300, 325, 350, 400, 450, 500, 550]
+    elements = [140, 150, 160, 170, 180, 185, 190, 200, 225, 250, 275, 300, 325, 350, 400, 450, 500, 550] # Все масштабы карт в игре
     current_selection = -1
     n_seconds = 2  # Время бездействия в секундах
     plus = 'ctrl+='  # Комбинация клавиш для выбора элемента
@@ -230,7 +229,7 @@ def main():
         nonlocal t
 
         if event.event_type == keyboard.KEY_DOWN:
-            if keyboard.is_pressed(plus):
+            if keyboard.is_pressed(plus): # Листание вперед
                 current_selection += 1
                 current_selection %= len(elements)  # Зацикливание списка
                 print(f"Текущий выбранный масштаб: {elements[current_selection]}")
@@ -243,7 +242,7 @@ def main():
                 else:
                     t = Timer(n_seconds, process_selection, [elements[current_selection]])
                     t.start()
-            elif keyboard.is_pressed(minus):
+            elif keyboard.is_pressed(minus): # Листание в обратную сторону
                 current_selection -= 1
                 current_selection %= len(elements)  # Зацикливание списка
                 print(f"Текущий выбранный масштаб: {elements[current_selection]}")
