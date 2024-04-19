@@ -6,6 +6,8 @@ import traceback
 from threading import Timer
 from tkinter import *
 from tkinter import ttk
+from pynput.mouse import Listener
+from pynput.keyboard import Listener as Key_Listener, Key
 
 import cv2
 import keyboard
@@ -220,16 +222,17 @@ def main():
     elements = [140, 150, 160, 170, 180, 185, 190, 200, 225, 250, 275, 300, 325, 350, 400, 450, 500, 550] # Все масштабы карт в игре
     current_selection = -1
     n_seconds = 2  # Время бездействия в секундах
-    plus = 'ctrl+='  # Комбинация клавиш для выбора элемента
-    minus = 'ctrl+-'
     t = None
+    ctrl_pressed = False
 
-    def on_key_event(event):
+
+    def on_scroll(x, y, dx, dy):
+        nonlocal ctrl_pressed
         nonlocal current_selection
         nonlocal t
 
-        if event.event_type == keyboard.KEY_DOWN:
-            if keyboard.is_pressed(plus): # Листание вперед
+        if ctrl_pressed:
+            if dy > 0:
                 current_selection += 1
                 current_selection %= len(elements)  # Зацикливание списка
                 print(f"Текущий выбранный масштаб: {elements[current_selection]}")
@@ -242,7 +245,7 @@ def main():
                 else:
                     t = Timer(n_seconds, process_selection, [elements[current_selection]])
                     t.start()
-            elif keyboard.is_pressed(minus): # Листание в обратную сторону
+            else:
                 current_selection -= 1
                 current_selection %= len(elements)  # Зацикливание списка
                 print(f"Текущий выбранный масштаб: {elements[current_selection]}")
@@ -256,10 +259,62 @@ def main():
                     t = Timer(n_seconds, process_selection, [elements[current_selection]])
                     t.start()
 
-    keyboard.on_press(on_key_event)
+    def on_press(key):
+        nonlocal ctrl_pressed
+        if key == Key.ctrl_l:
+            ctrl_pressed = True
+        elif key == Key.caps_lock:
+            exit()
 
-    while True:
-        time.sleep(0.01)
+    def on_release(key):
+        nonlocal ctrl_pressed
+        if key == Key.ctrl_l:
+            ctrl_pressed = False
+
+    with Listener(on_scroll=on_scroll) as listener, Key_Listener(on_press=on_press,
+                                                                 on_release=on_release) as key_listener:
+        listener.join()
+        key_listener.join()
+    # plus = 'ctrl+='  # Комбинация клавиш для выбора элемента
+    # minus = 'ctrl+-'
+    # t = None
+    #
+    # def on_key_event(event):
+    #     nonlocal current_selection
+    #     nonlocal t
+    #
+    #     if event.event_type == keyboard.KEY_DOWN:
+    #         if keyboard.is_pressed(plus): # Листание вперед
+    #             current_selection += 1
+    #             current_selection %= len(elements)  # Зацикливание списка
+    #             print(f"Текущий выбранный масштаб: {elements[current_selection]}")
+    #             selection_data = {"selection": elements[current_selection]}
+    #             state_queue.put(selection_data)
+    #             if t is not None:
+    #                 t.cancel()
+    #                 t = Timer(n_seconds, process_selection, [elements[current_selection]])
+    #                 t.start()
+    #             else:
+    #                 t = Timer(n_seconds, process_selection, [elements[current_selection]])
+    #                 t.start()
+    #         elif keyboard.is_pressed(minus): # Листание в обратную сторону
+    #             current_selection -= 1
+    #             current_selection %= len(elements)  # Зацикливание списка
+    #             print(f"Текущий выбранный масштаб: {elements[current_selection]}")
+    #             selection_data = {"selection": elements[current_selection]}
+    #             state_queue.put(selection_data)
+    #             if t is not None:
+    #                 t.cancel()
+    #                 t = Timer(n_seconds, process_selection, [elements[current_selection]])
+    #                 t.start()
+    #             else:
+    #                 t = Timer(n_seconds, process_selection, [elements[current_selection]])
+    #                 t.start()
+    #
+    # keyboard.on_press(on_key_event)
+    #
+    # while True:
+    #     time.sleep(0.01)
 
 
 ######################################################################

@@ -574,3 +574,26 @@ Traceback (most recent call last):
     raise ValueError(s)
 ValueError: caps_lock
 caps_lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 155, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 155, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 155, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 157, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
