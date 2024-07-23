@@ -1,4 +1,4 @@
-Версия программы 33
+Версия программы 41
 На гитхабе может быть более новая: https://github.com/Yonisen/WarThunder_Map_Marker_Finder
 
 
