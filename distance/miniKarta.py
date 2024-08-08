@@ -1,4 +1,6 @@
 import traceback
+import subprocess
+import threading
 import sys
 import os
 sys.path.append('code/')
@@ -125,17 +127,24 @@ try:
                 queue_alt.put("skip")
             else:
                 Timer(0.1, checkSignals).start()
+
+        def scale():
+            subprocess.call(["python", "code/scale.py"])
         
         startChilds()             
                                                                  
-        print("\nПрограмма ожидает сочетания клавиш")                                        
+        print("\nПрограмма ожидает сочетания клавиш")
+
+        scale_check = threading.Thread(target=scale)
+        scale_check.start()
+
         
         while True:
             msg = queue.get()
             if msg == "distance":
                 print("")
                 queue1.put(['clear'])
-                time.sleep(0.3)
+                time.sleep(0.18)
                 distanceFinder.checkDistance(model, queue1)
             elif msg == "scale":
                 comand=["python", 'code/scale.py']
