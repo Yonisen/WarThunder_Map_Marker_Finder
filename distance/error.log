@@ -1,0 +1,599 @@
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: x1
+x1
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: right
+right
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 153, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 90, in process_selection
+    label["text"] = f"ошибка"
+    ^^^^^
+NameError: name 'label' is not defined
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 163, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\code\scale.py", line 167, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "F:\SteamLibrary\steamapps\common\War Thunder\Map_dalnost\distance\miniKarta.py", line 137, in <module>
+    scale_check = threading.Thread(target=scale)
+                  ^^^^^^^^^
+NameError: name 'threading' is not defined
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 159, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 159, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 159, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: Caps Lock
+Caps Lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: caps lock
+caps lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 147, in parse
+    return Key[p.lower()]
+           ~~~^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\enum.py", line 790, in __getitem__
+    return cls._member_map_[name]
+           ~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'caps lock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 150, in parse
+    return KeyCode.from_vk(int(p))
+                           ^^^^^^
+ValueError: invalid literal for int() with base 10: 'caps lock'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 152, in parse
+    raise ValueError(s)
+ValueError: <caps lock>
+<caps lock>
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: "caps lock"
+"caps lock"
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: capslock
+capslock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: caps lock
+caps lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: Caps Lock
+Caps Lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: caps lock down
+caps lock down
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: caps lock
+caps lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: Key.caps_lock
+Key.caps_lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\signal1.py", line 66, in signal1
+    with GlobalHotKeys(obj) as h:
+         ^^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 206, in __init__
+    self._hotkeys = [
+                    ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 207, in <listcomp>
+    HotKey(HotKey.parse(key), value)
+           ^^^^^^^^^^^^^^^^^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 158, in parse
+    parsed_parts = [
+                   ^
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 159, in <listcomp>
+    parse(s)
+  File "I:\Programming\Python3.11\Lib\site-packages\pynput\keyboard\__init__.py", line 154, in parse
+    raise ValueError(s)
+ValueError: caps_lock
+caps_lock
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 155, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 155, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 155, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
+
+
+Traceback (most recent call last):
+  File "I:\Programming\Map_Marker_finder\distance\code\scale.py", line 157, in selectWindow
+    win32gui.SetForegroundWindow(wt[0])
+pywintypes.error: (0, 'SetForegroundWindow', 'No error message is available')
