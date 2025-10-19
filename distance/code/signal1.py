@@ -1,75 +1,66 @@
-#from pynput.keyboard import Listener
-#from pynput.keyboard import Listener
-from pynput.keyboard import Controller, GlobalHotKeys
-import traceback
-#import pressKey
-#import time
 import configparser
-import win32api
+import platform
+import traceback
+from pynput.keyboard import GlobalHotKeys
+
+
+class HotkeyManager:
+    """Manages global hotkeys for the application."""
+
+    def __init__(self, queue):
+        """Initializes the hotkey manager."""
+        self.queue = queue
+        self.config = self.read_config("code/buttons.ini")
+        self.setup_hotkeys()
+
+    def read_config(self, filename):
+        """Reads hotkey configurations from an INI file."""
+        config = configparser.ConfigParser()
+        config.read(filename, encoding='utf-8')
+        return {
+            "distance": config.get("Combinations", "Distance measurement", fallback=None),
+            "scale": config.get("Combinations", "Scale setting", fallback=None),
+            "distance_mouse": config.get("Combinations", "Distance measurement mouse", fallback=None),
+            "scale_mouse": config.get("Combinations", "Scale setting mouse", fallback=None),
+        }
+
+    def setup_hotkeys(self):
+        """Sets up the global hotkeys based on the configuration."""
+        if platform.system() == "Windows":
+            try:
+                import win32api
+                win32api.LoadKeyboardLayout('00000409', 1)  # Set keyboard layout to English
+            except ImportError:
+                print("PyWin32 not installed. Hotkeys may not work as expected.")
+
+        hotkey_map = {}
+        if self.config["distance"]:
+            hotkey_map[self.config["distance"]] = self.on_distance
+        if self.config["scale"]:
+            hotkey_map[self.config["scale"]] = self.on_scale
+
+        if not hotkey_map:
+            print("No keyboard hotkeys configured.")
+            return
+
+        listener = GlobalHotKeys(hotkey_map)
+        listener.start()
+        listener.join()
+
+    def on_distance(self):
+        """Callback for the distance measurement hotkey."""
+        self.queue.put("distance")
+
+    def on_scale(self):
+        """Callback for the scale setting hotkey."""
+        self.queue.put("scale")
+
 
 def signal1(queue):
-
+    """Initializes and runs the hotkey manager."""
     try:
-        win32api.LoadKeyboardLayout('00000409',1)    
-        keyboard = Controller()
-        
-        def read_config(name):
-            config = configparser.ConfigParser()
-            config.read(name, encoding='utf-8')
-            conf = []
-            conf.append(config.get("Combinations", "Distance measurement"))
-            conf.append(config.get("Combinations", "Scale setting"))
-            conf.append(config.get("Combinations", "Distance measurement mouse"))
-            conf.append(config.get("Combinations", "Scale setting mouse"))
-            return conf
-        conf = read_config("code/buttons.ini")
-        
-        def on_activate_t():
-            try:
-
-                queue.put("distance")           
-
-            except Exception as e:
-                file = open('error.log', 'a')
-                file.write('\n\n')
-                traceback.print_exc(file=file, chain=True)
-                traceback.print_exc()
-                file.close()      
-                
-        def on_activate_cn():
-            try:
-             
-                queue.put("scale")
-            
-            except Exception as e:
-                file = open('error.log', 'a')
-                file.write('\n\n')
-                traceback.print_exc(file=file, chain=True)
-                traceback.print_exc()
-                file.write(str(e))
-                file.close()     
-        
-
-        findDistance = conf[0] or conf[2]
-        if findDistance == "":
-            print("кнопка для замера дистанции не назначена")
-        setScaling = conf[1] or conf[3]
-        if setScaling == "":
-            print("кнопка для выставки масштаба не назначена")
-        
-        obj = {}
-        if conf[0]:
-            obj[conf[0]] = on_activate_t
-        if conf[1]:
-            obj[conf[1]] = on_activate_cn
-        
-        with GlobalHotKeys(obj) as h:
-            h.join()
-            
+        HotkeyManager(queue)
     except Exception as e:
-        file = open('error.log', 'a')
-        file.write('\n\n')
-        traceback.print_exc(file=file, chain=True)
-        traceback.print_exc()
-        file.write(str(e))
-        file.close()
+        with open('error.log', 'a') as f:
+            f.write(f'\\n\\nError in signal1: {e}\\n')
+            traceback.print_exc(file=f, chain=True)

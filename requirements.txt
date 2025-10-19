@@ -1,0 +1,26 @@
+# Base
+ipython
+matplotlib
+numpy
+opencv-python
+Pillow
+psutil
+PyYAML
+requests
+scipy
+thop
+torch
+torchvision
+tqdm
+# protobuf<=3.20.1
+pyautogui
+pynput
+onnx
+onnxruntime
+
+# Logging
+tensorboard
+
+# Plotting
+pandas
+seaborn

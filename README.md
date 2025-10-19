@@ -1,41 +1,46 @@
-# WarThunder_Map_Marker_Finder_41
+# War Thunder Map Marker Rangefinder
 
-Дальномер по желтой метке на карте. Работает на <b>любом</b> компьютере (Windows 10), даже на самом старом.<br>
-Использует скриншоты и оверлей. Основан на нейросети YOLOv5 от ultralitics.<br>
-Все вычисления идут через процессор.<br>
+This tool provides an in-game rangefinder for War Thunder by analyzing screenshots of the minimap. It uses a YOLOv5 neural network to detect the player's tank and the yellow map marker, calculating the distance and azimuth between them. The application runs on any Windows 10 computer and relies on CPU for all computations.
 
-English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder">here</a>
+## Features
 
-## Установка
+-   **Accurate Rangefinding**: Calculates the distance to a map marker with an accuracy of ±20 meters.
+-   **Customizable Overlay**: Display the distance and azimuth in a configurable overlay window.
+-   **Easy to Use**: Set up the tool once and measure distances with a single hotkey.
+-   **Screen Resolution Support**: Supports a wide range of screen resolutions.
 
-- Скачайте архив (зеленая кнопка `Code`)
+## Installation
 
-- Распакуйте весь архив (папка `data` вам тоже нужна) и перейдите в папку `distance`
-- Читайте `Инструкцию.txt` (в ней также рассказаны интересные особенности)
-- Если у вас разрешение монитора, которое не поддерживается программой, то загляните в папку, которую я так и назвал, читайте скриншоты
+1.  **Install Python**:
+    -   Download and install Python 3.13 from the [official website](https://www.python.org/).
+    -   **Important**: During installation, make sure to check the box that says "Add Python to PATH."
 
-## Замер дистанции (t)
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen15.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen15_1.png">
+2.  **Download the Project**:
+    -   Download the project files by clicking the green "Code" button and selecting "Download ZIP."
+    -   Extract the archive to a location of your choice.
 
-## Что происходит
-Создается скриншот<br>
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map15.png">
+3.  **Install Dependencies**:
+    -   Open a command prompt or terminal in the project's root directory.
+    -   Run the installation script by typing `python install.py` and pressing Enter. This will install all the necessary libraries.
 
-Нейросеть ищет метки на скриншоте<br>
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map15_1.jpg">
+## How to Use
 
+1.  **Configure In-Game Settings**:
+    -   Set your game to "Windowed Fullscreen" mode.
+    -   Set the minimap size to the largest possible value.
+    -   Assign a hotkey for the "squad marker" in the game's controls.
 
-## Еще пример
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen25.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen25_1.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map25.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map25_1.jpg">
+2.  **Configure the Tool**:
+    -   Navigate to the `distance` directory and run `settings.pyw`.
+    -   Select your screen resolution and configure the hotkeys for measuring distance and setting the map scale.
+    -   You can also customize the position and transparency of the overlay.
+    -   Click "Apply" to save your settings.
 
-## Установка масштаба карты (Ctrl+N)
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen3.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen4.png">
+3.  **Run the Rangefinder**:
+    -   In the `distance` directory, run `miniKarta.py`. A console window will appear, indicating that the program is running.
+    -   Once in a match, open the minimap and use the "scale" hotkey to set the map scale.
+    -   To measure the distance to a target, place the squad marker on it and press the "distance" hotkey. The range and azimuth will appear in the overlay.
 
-## Настройка программы
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen1.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen2.png">
+## How It Works
+
+The tool captures a screenshot of the minimap and uses a YOLOv5 model to identify the player's tank icon and the yellow squad marker. It then calculates the pixel coordinates of these two points and uses the map scale to determine the actual in-game distance and azimuth.

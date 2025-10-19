@@ -1,151 +1,152 @@
-import traceback
-import sys
 import os
+import sys
+import time
+import traceback
+from multiprocessing import Process, Queue
+from subprocess import Popen
+from threading import Timer
+
+import torch
+
+# Add the 'code' directory to the system path to allow importing modules from it
 sys.path.append('code/')
 
-try:
-    
-    def signal1(queue):
-        try:
-        
-            import signal1
-            file = open('code/pid1.txt', 'w')
-            file.write(str(os.getpid()))
-            file.close()            
-            signal1.signal1(queue)
-            
-        except Exception as e:
-            file = open('error.log', 'a')
-            file.write('\n\n')
-            traceback.print_exc(file=file, chain=True)
-            traceback.print_exc()
-            file.close()    
-            
-    def signal3(queue):
-        try:
-        
-            import signal3
-            file = open('code/pid3.txt', 'w')
-            file.write(str(os.getpid()))
-            file.close()            
-            signal3.signal3(queue)
-            
-        except Exception as e:
-            file = open('error.log', 'a')
-            file.write('\n\n')
-            traceback.print_exc(file=file, chain=True)
-            traceback.print_exc()
-            file.close()
-            
-    def printResults(queue1):
-        try:
-        
-            import printResults
-            file = open('code/pid5.txt', 'w')
-            file.write(str(os.getpid()))
-            file.close()            
-            printResults.printResults(queue1)
-            
-        except Exception as e:
-            file = open('error.log', 'a')
-            file.write('\n\n')
-            traceback.print_exc(file=file, chain=True)
-            traceback.print_exc()
-            file.close()                             
-    
-    if __name__ == "__main__":
-    
-        import torch
-        import time
-        import distanceFinder
-        #from tkinter import *
-        from subprocess import Popen
-        from multiprocessing import Queue, Process 
-        from threading import Timer
-        
-        file = open('code/pid.txt', 'w')
-        file.write(str(os.getpid()))
-        file.close()
 
-    
-        print("Инициализация нейросети")
+def run_signal_process(queue, signal_module, pid_file):
+    """
+    Initializes and runs a signal process in a separate process.
 
-        #инициализация модели нейросети для поиска игрока и метки
-        model = torch.hub.load('code/yolo5', 'custom', 'code/yolo5/best.onnx', source='local')#classes="1"
-
-        #по умолчанию модель работает на процессоре
+    Args:
+        queue (multiprocessing.Queue): The queue for inter-process communication.
+        signal_module (str): The name of the signal module to import and run.
+        pid_file (str): The path to the file where the process ID will be stored.
+    """
+    try:
+        module = __import__(signal_module)
+        with open(pid_file, 'w') as f:
+            f.write(str(os.getpid()))
+        module.run(queue)  # Assuming each signal module has a 'run' function
+    except Exception:
+        with open('error.log', 'a') as f:
+            f.write(f"\\n\\nError in {signal_module}:\\n")
+            traceback.print_exc(file=f, chain=True)
+        traceback.print_exc()
 
 
+def run_print_results_process(queue):
+    """
+    Initializes and runs the printResults process.
 
-        # #настройка модели танка
-        # modelTank.conf = 0.15  # NMS confidence threshold отсев по точности первый
-        # modelTank.iou = 0.45  # NMS IoU threshold второй, то есть то что больше 45% в теории пройдет
-        # modelTank.agnostic = False  # NMS class-agnostic
-        # modelTank.multi_label = False  # NMS multiple labels per box несколько лейблов одному объекту
-        # modelTank.classes = [0,1]  # (optional list) filter by class, i.e. = [0, 15, 16] for COCO persons, cats and dogs
-                             # #номера каких классов оставить
-        # modelTank.max_det = 1000  # maximum number of detections per image
-        # modelTank.amp = False  # Automatic Mixed Precision (AMP) inference
+    Args:
+        queue (multiprocessing.Queue): The queue for inter-process communication.
+    """
+    try:
+        import printResults
+        with open('code/pid5.txt', 'w') as f:
+            f.write(str(os.getpid()))
+        printResults.printResults(queue)
+    except Exception:
+        with open('error.log', 'a') as f:
+            f.write("\\n\\nError in printResults:\\n")
+            traceback.print_exc(file=f, chain=True)
+        traceback.print_exc()
 
-        # #настройка модели маркера
-        # modelMarker.conf = 0.15  # NMS confidence threshold отсев по точности первый
-        # modelMarker.iou = 0.45  # NMS IoU threshold второй, то есть то что больше 45% в теории пройдет
-        # modelMarker.agnostic = False  # NMS class-agnostic
-        # modelMarker.multi_label = False  # NMS multiple labels per box несколько лейблов одному объекту
-        # modelMarker.classes = [0]  # (optional list) filter by class, i.e. = [0, 15, 16] for COCO persons, cats and dogs
-                             # #номера каких классов оставить
-        # modelMarker.max_det = 1000  # maximum number of detections per image
-        # modelMarker.amp = False  # Automatic Mixed Precision (AMP) inference
 
-        #модели нейросетей готовы к работе
+class ProcessManager:
+    """
+    Manages the lifecycle of child processes for handling signals and results.
+    """
 
-        queue = 0
-        queue1 = 0
-        process1 = 0
-        process3 = 0
-        process5 = 0
-        
-        def startChilds():      
-            global queue, queue1, process1, process3, process5
-            queue = Queue()
-            queue1 = Queue()
-            process1 = Process(target=signal1, args=(queue,))
-            process1.start()
-            process3 = Process(target=signal3, args=(queue,))
-            process3.start()      
-            process5 = Process(target=printResults, args=(queue1,))
-            process5.start()             
-            checkSignals()
-            
-        def checkSignals():
-            
-            if (process1.exitcode != 0 and process1.exitcode != None) or (process3.exitcode != 0 and process3.exitcode != None) or (process5.exitcode != 0 and process5.exitcode != None):
-                queue_alt = queue
-                startChilds()
-                queue_alt.put("skip")
-            else:
-                Timer(0.1, checkSignals).start()
-        
-        startChilds()             
-                                                                 
-        print("\nПрограмма ожидает сочетания клавиш")                                        
-        
+    def __init__(self):
+        self.signal_queue = None
+        self.results_queue = None
+        self.signal_process1 = None
+        self.signal_process3 = None
+        self.results_process = None
+        self.start_child_processes()
+
+    def start_child_processes(self):
+        """
+        Starts the child processes for handling signals and printing results.
+        """
+        self.signal_queue = Queue()
+        self.results_queue = Queue()
+
+        self.signal_process1 = Process(target=run_signal_process,
+                                       args=(self.signal_queue, 'signal1', 'code/pid1.txt'))
+        self.signal_process3 = Process(target=run_signal_process,
+                                       args=(self.signal_queue, 'signal3', 'code/pid3.txt'))
+        self.results_process = Process(target=run_print_results_process, args=(self.results_queue,))
+
+        self.signal_process1.start()
+        self.signal_process3.start()
+        self.results_process.start()
+        self.monitor_child_processes()
+
+    def monitor_child_processes(self):
+        """
+        Monitors the health of child processes and restarts them if they fail.
+        """
+        if not all(p.is_alive() for p in [self.signal_process1, self.signal_process3, self.results_process]):
+            print("One or more child processes have exited. Restarting...")
+            # Cleanly terminate existing processes before restarting
+            for p in [self.signal_process1, self.signal_process3, self.results_process]:
+                if p.is_alive():
+                    p.terminate()
+                    p.join()
+            self.start_child_processes()
+            self.signal_queue.put("skip")  # Prevent processing of old messages
+        else:
+            Timer(0.1, self.monitor_child_processes).start()
+
+    def get_signal_queue(self):
+        return self.signal_queue
+
+    def get_results_queue(self):
+        return self.results_queue
+
+
+def main():
+    """
+    Main function to initialize the application, load the model, and handle user input.
+    """
+    try:
+        # Store the main process ID
+        with open('code/pid.txt', 'w') as f:
+            f.write(str(os.getpid()))
+
+        print("Initializing the neural network...")
+
+        # Load the YOLOv5 model from a local ONNX file
+        model = torch.hub.load('code/yolo5', 'custom', 'code/yolo5/best.onnx', source='local')
+        # The model runs on the CPU by default
+
+        process_manager = ProcessManager()
+        signal_queue = process_manager.get_signal_queue()
+        results_queue = process_manager.get_results_queue()
+
+        print("\\nWaiting for key combinations...")
+
         while True:
-            msg = queue.get()
-            if msg == "distance":
-                print("")
-                queue1.put(['clear'])
-                time.sleep(0.3)
-                distanceFinder.checkDistance(model, queue1)
-            elif msg == "scale":
-                comand=["python", 'code/scale.py']
-                Popen(comand)                        
-            elif msg == "skip":
-                continue            
-            
-except Exception as e:
-    file = open('error.log', 'a')
-    file.write('\n\n')
-    traceback.print_exc(file=file, chain=True)
-    traceback.print_exc()
-    file.close()
+            message = signal_queue.get()
+            if message == "distance":
+                print("Calculating distance...")
+                results_queue.put(['clear'])
+                time.sleep(0.3)  # Wait for the UI to update
+                import distanceFinder
+                distanceFinder.checkDistance(model, results_queue)
+            elif message == "scale":
+                print("Opening scale settings...")
+                Popen(["python", 'code/scale.py'])
+            elif message == "skip":
+                continue
+
+    except Exception:
+        with open('error.log', 'a') as f:
+            f.write("\\n\\nAn unexpected error occurred in the main process:\\n")
+            traceback.print_exc(file=f, chain=True)
+        traceback.print_exc()
+
+
+if __name__ == "__main__":
+    main()

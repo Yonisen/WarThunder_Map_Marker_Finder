@@ -1,201 +1,173 @@
-from tkinter import *
-from tkinter import ttk
-import re
-import win32gui
-from threading import Timer
-import traceback
 import configparser
-import pyautogui
+import platform
+import re
+import tkinter as tk
+from tkinter import ttk
+
 import cv2
+import pyautogui
 
-try: 
 
-    def read_config(name):
+class ScaleWindow:
+    """A GUI for setting the map scale."""
+
+    def __init__(self, master):
+        """Initializes the scale window."""
+        self.master = master
+        self.config = self.read_config("code/buttons.ini")
+        self.resolution = self.config.get('resolution', '3')
+        self.resolution_data = self.get_resolution_data()
+        self.scale = self.load_scale()
+
+        self.configure_styles()
+        self.create_widgets()
+        self.focus_game_window()
+
+    def configure_styles(self):
+        """Configures ttk styles for a modern look."""
+        style = ttk.Style()
+        style.theme_use('clam')
+        style.configure("TFrame", background="#2E2E2E")
+        style.configure("TLabel", background="#2E2E2E", foreground="#FFFFFF", font=('Calibri', 12))
+        style.configure("TEntry", fieldbackground="#3C3C3C", foreground="#FFFFFF", bordercolor="#555555",
+                        insertbackground="white")
+        style.configure("TButton", background="#007ACC", foreground="white", font=('Calibri', 10, 'bold'),
+                        borderwidth=0)
+        style.map("TButton", background=[('active', '#005f9e')])
+
+    def read_config(self, filename):
+        """Reads configuration from an INI file."""
         config = configparser.ConfigParser()
-        config.read(name, encoding='utf-8')
-        conf = {}
-        conf['scale_x'] = config.get("Combinations", "scale_x")
-        conf['scale_y'] = config.get("Combinations", "scale_y")
-        conf['resolution'] = config.get("Combinations", "Resolution")
-        return conf
-    conf = read_config("code/buttons.ini")
-    resolution = conf['resolution']
+        config.read(filename, encoding='utf-8')
+        return {
+            'scale_x': config.get("Combinations", "scale_x", fallback='15'),
+            'scale_y': config.get("Combinations", "scale_y", fallback='71'),
+            'resolution': config.get("Combinations", "Resolution", fallback='3'),
+        }
 
-    resolutionObject = {
-        '0': [1034,436,329,329,329,329], #1366x768    #[x,y,w,h,size,sizeReal]
-        '1': [1054,514,384,384,384,384], #1440x900
-        '2': [1234,604,444,444,444,444], #1680x1050
-        '3': [1462,622,456,456,456,456], #1920x1080
-        '4': [1462,742,456,456,456,456], #1920x1200
-        #'3': [1034,436,329,329,329,329], #2560x1080
-        '5': [1955,835,605,605,465,605], #2560x1440
-        '6': [2835,835,605,605,465,605], #3440x1440
-        '7': [2940,1260,900,900,480,900], #3840x2160
-        '8': [3924,1684,1196,1196,460,1196], #5120x2280
-    }
-    
-    resolutionX = resolutionObject[resolution][0]
-    resolutionY = resolutionObject[resolution][1]
-    resolutionW = resolutionObject[resolution][2]
-    resolutionH = resolutionObject[resolution][3]
-    ######################################################################
-    #Создание окна масштаба
+    def get_resolution_data(self):
+        """Returns screenshot region data based on screen resolution."""
+        resolution_map = {
+            '0': [1034, 436, 329, 329], '1': [1054, 514, 384, 384], '2': [1234, 604, 444, 444],
+            '3': [1462, 622, 456, 456], '4': [1462, 742, 456, 456], '5': [1955, 835, 605, 605],
+            '6': [2835, 835, 605, 605], '7': [2940, 1260, 900, 900], '8': [3924, 1684, 1196, 1196],
+        }
+        return resolution_map.get(self.resolution, [1462, 622, 456, 456])
 
-    file = open('code/scale.txt', 'r')
-    scale = file.read()
-    file.close()
-    if scale == "" or scale == "0":
-        scale = "5"
-        file = open('code/scale.txt', 'w')
-        file.write(scale)
-        file.close()
-    scale = round(float(scale), 1)   
-
-    def get_text():
+    def load_scale(self):
+        """Loads the map scale from a text file."""
         try:
-            res = entry.get()
-            if res != "":
-                print('')
-                screen = pyautogui.screenshot('Map.png', region=(resolutionX, resolutionY, resolutionW, resolutionH))
-                karta = cv2.imread("Map.png")
-                
-                objBukv = {
-                    0: [1, 'a'],
-                    1: [5, 'e'],
-                    2: [7, 'g']
-                }
+            with open('code/scale.txt', 'r') as f:
+                return float(f.read().strip() or 5.0)
+        except (FileNotFoundError, ValueError):
+            return 5.0
 
-                abukva = cv2.imread(f"../data/resolution_{resolution}/aletter.png")
-                resAbukva = cv2.matchTemplate(karta,abukva,cv2.TM_CCOEFF_NORMED)
-                a, b, d, top_left_a = cv2.minMaxLoc(resAbukva)
-                print("лев_верх_угол_буква_a",top_left_a)
+    def save_scale(self):
+        """Saves the map scale to a text file."""
+        with open('code/scale.txt', 'w') as f:
+            f.write(str(self.scale))
 
-                ebukva = cv2.imread(f"../data/resolution_{resolution}/eletter.png")
-                resEbukva = cv2.matchTemplate(karta,ebukva,cv2.TM_CCOEFF_NORMED)
-                a, b, d, top_left_e = cv2.minMaxLoc(resEbukva)
-                print("лев_верх_угол_буква_e",top_left_e)
+    def create_widgets(self):
+        """Creates and places all widgets in the window."""
+        self.master.geometry(f"220x80+{self.config['scale_x']}+{self.config['scale_y']}")
+        self.master.overrideredirect(True)
+        self.master.lift()
+        self.master.wm_attributes("-topmost", True)
+        self.master.configure(bg="#2E2E2E")
+        if platform.system() != "Windows":
+            self.master.wm_attributes("-alpha", 0.85)
 
-                gbukva = cv2.imread(f"../data/resolution_{resolution}/gletter.png")
-                resGbukva = cv2.matchTemplate(karta,gbukva,cv2.TM_CCOEFF_NORMED)
-                a, b, d, top_left_g = cv2.minMaxLoc(resGbukva)
-                print("лев_верх_угол_буква_g",top_left_g)
-                
-                arrOfBukv = [top_left_a, top_left_e, top_left_g]
-                centOfBukv = (arrOfBukv[0][0] + arrOfBukv[1][0] + arrOfBukv[2][0])/3
-                maxError = 0
-                maxIndex = 2
-                for i in range(len(arrOfBukv)):
-                    delta = abs(centOfBukv-arrOfBukv[i][0])
-                    if delta>maxError:
-                        maxError = delta
-                        maxIndex = i
-                newArrOfBukv = []
-                for i in range(len(arrOfBukv)):
-                    if i != maxIndex:
-                        arr = [arrOfBukv[i][1], objBukv[i]]
-                        newArrOfBukv.append(arr)
-               
-                line = (newArrOfBukv[1][0]-newArrOfBukv[0][0])/(newArrOfBukv[1][1][0]-newArrOfBukv[0][1][0])
-                print(f'для рассчета масштаба были взяты буквы {newArrOfBukv[0][1][1]} и {newArrOfBukv[1][1][1]}')
-                if line <= 0:
-                    label["text"] = f"ошибка"
-                    print('не удалось распознать буквы на миникарте')
-                    return 
-                scale = int(res)/line
-                print(f'масштаб карты {scale}')
-                if scale == 0:
-                    label["text"] = f"ошибка"
-                    entry.delete(0, END)
-                    return 
-                if scale > 99:
-                    label["text"] = f"ошибка"
-                    print('не удалось распознать буквы на миникарте')
-                    return  
-                file = open('code/scale.txt', 'w')
-                file.write(str(scale))
-                file.close()
-                label["text"] = f"{round(scale, 1)} пикс/м"     # получаем введенный текст
-                entry.delete(0, END)
-        except Exception as e:
-            file = open('error.log', 'a')
-            file.write('\n\n')
-            traceback.print_exc(file=file, chain=True)
-            traceback.print_exc()
-            file.close()
+        self.label = ttk.Label(self.master, text=f'{self.scale:.1f} px/m', font=('Calibri', 16, 'bold'))
+        self.label.pack(pady=(5, 2))
 
-    def close():
-        selectWindow()
-        quit()
+        input_frame = ttk.Frame(self.master)
+        input_frame.pack(pady=5)
+        validate_cmd = (self.master.register(self.validate_input), "%P")
+        self.entry = ttk.Entry(input_frame, width=6, font=('Calibri', 12), validate="key",
+                               validatecommand=validate_cmd)
+        self.entry.pack(side=tk.LEFT, padx=5)
+        ttk.Button(input_frame, text="Set Scale", command=self.calculate_scale).pack(side=tk.LEFT)
+        ttk.Button(self.master, text="X", command=self.close, width=2).place(x=195, y=2)
 
-    def validation(newval):
-        try:
-            return re.match("^\d{0,4}$", newval) is not None
-        except Exception as e:
-            file = open('error.log', 'a')
-            file.write('\n\n')
-            traceback.print_exc(file=file, chain=True)
-            traceback.print_exc()
-            file.close()           
+    def calculate_scale(self):
+        """Calculates and updates the map scale."""
+        map_distance = self.entry.get()
+        if not map_distance:
+            return
 
-    def selectWindow(event=1):
-        try:
-            toplist = []
-            winlist = []
-            def enum_callback(hwnd, results):
-                winlist.append((hwnd, win32gui.GetWindowText(hwnd)))
+        x, y, w, h = self.resolution_data
+        pyautogui.screenshot('Map.png', region=(x, y, w, h))
+        minimap_image = cv2.imread("Map.png")
 
-            win32gui.EnumWindows(enum_callback, toplist)
-            wt = [(hwnd, title) for hwnd, title in winlist if 'war thunder' in title.lower()]
-            # just grab the first window that matches
-            if wt !=[]:
-                wt = wt[0]
-                # use the window handle to set focus
-                win32gui.SetForegroundWindow(wt[0])  
-        except Exception as e:
-            file = open('error.log', 'a')
-            file.write('\n\n')
-            traceback.print_exc(file=file, chain=True)
-            traceback.print_exc()
-            file.close()                
+        objBukv = {0: [1, 'a'], 1: [5, 'e'], 2: [7, 'g']}
+        letters = {'a': "aletter.png", 'e': "eletter.png", 'g': "gletter.png"}
+        letter_positions = []
+        for i, (letter, filename) in enumerate(letters.items()):
+            template = cv2.imread(f"../data/resolution_{self.resolution}/{filename}")
+            res = cv2.matchTemplate(minimap_image, template, cv2.TM_CCOEFF_NORMED)
+            _, _, _, top_left = cv2.minMaxLoc(res)
+            letter_positions.append(top_left)
 
-    root = Tk()
-    geometry = f"199x70+{conf['scale_x']}+{conf['scale_y']}"
-    root.geometry(geometry) 
-    check = (root.register(validation), "%P")
-    entry = Entry(fg="yellow", bg="black", font=('Roboto','16'), width = 5, validate="key", validatecommand=check)
-    entry.master.overrideredirect(True)
-    entry.master.lift()
-    entry.master.wm_attributes("-topmost", True)
-    entry.place(x=22, y=38)
+        arrOfBukv = [letter_positions[0], letter_positions[1], letter_positions[2]]
+        centOfBukv = (arrOfBukv[0][0] + arrOfBukv[1][0] + arrOfBukv[2][0]) / 3
+        maxError = 0
+        maxIndex = 2
+        for i in range(len(arrOfBukv)):
+            delta = abs(centOfBukv - arrOfBukv[i][0])
+            if delta > maxError:
+                maxError = delta
+                maxIndex = i
+        newArrOfBukv = []
+        for i in range(len(arrOfBukv)):
+            if i != maxIndex:
+                arr = [arrOfBukv[i][1], objBukv[i]]
+                newArrOfBukv.append(arr)
 
-    btn = ttk.Button(text="Масштаб", command=get_text)
-    btn.master.overrideredirect(True)
-    btn.master.lift()
-    btn.master.wm_attributes("-topmost", True)
-    btn.place(x=97, y=40)
+        line = (newArrOfBukv[1][0] - newArrOfBukv[0][0]) / (newArrOfBukv[1][1][0] - newArrOfBukv[0][1][0])
+        if line <= 0:
+            self.label["text"] = f"Error"
+            return
+        scale = int(map_distance) / line
+        if scale == 0 or scale > 99:
+            self.label["text"] = f"Error"
+            self.entry.delete(0, tk.END)
+            return
+        self.scale = scale
+        self.label["text"] = f"{round(scale, 1)} px/m"
+        self.entry.delete(0, tk.END)
+        self.save_scale()
 
-    btn1 = ttk.Button(text="X", command=close, width=3)
-    btn1.master.overrideredirect(True)
-    btn1.master.lift()
-    btn1.master.wm_attributes("-topmost", True)
-    btn1.place(x=169, y=3)
+    def validate_input(self, new_value):
+        """Validates that the input is a number up to 4 digits."""
+        return re.match(r"^\d{0,4}$", new_value) is not None
 
-    label = Label(root, text=f'{scale} пикс/м', font=('Roboto','19'), fg='yellow', bg='brown')
-    label.master.overrideredirect(True)
-    label.master.lift()
-    label.master.wm_attributes("-topmost", True)
-    label.pack()
+    def focus_game_window(self):
+        """Brings the War Thunder window to the foreground on Windows."""
+        if platform.system() == "Windows":
+            try:
+                import win32gui
+                win = win32gui.FindWindow(None, "War Thunder")
+                if win:
+                    win32gui.SetForegroundWindow(win)
+            except ImportError:
+                pass  # win32gui not on this system
 
-    timeout = 0
-    t = Timer(timeout, selectWindow)
-    t.start()    
-    
-    root.mainloop()
-    
-    ######################################################################
-except Exception as e:
-    file = open('error.log', 'a')
-    file.write('\n\n')
-    traceback.print_exc(file=file, chain=True)
-    traceback.print_exc()
-    file.close()
+    def close(self):
+        """Closes the scale window."""
+        self.focus_game_window()
+        self.master.destroy()
+
+
+def main():
+    """Main function to create and run the scale window."""
+    try:
+        root = tk.Tk()
+        ScaleWindow(root)
+        root.mainloop()
+    except Exception as e:
+        with open('error.log', 'a') as f:
+            f.write(f'\\n\\nError in scale window: {e}\\n')
+
+
+if __name__ == "__main__":
+    main()
