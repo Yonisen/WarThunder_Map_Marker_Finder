@@ -1,3 +1,9 @@
+"""
+This module is responsible for handling global hotkeys.
+
+It uses the pynput library to listen for keyboard events and puts a
+message into the queue when a registered hotkey is pressed.
+"""
 #from pynput.keyboard import Listener
 #from pynput.keyboard import Listener
 from pynput.keyboard import Controller, GlobalHotKeys
@@ -8,6 +14,16 @@ import configparser
 import win32api
 
 def signal1(queue):
+    """
+    Listens for keyboard hotkeys and puts messages into a queue.
+
+    This function reads the hotkey configuration from a file, sets up a
+    global hotkey listener, and puts a message into the queue when one of the
+    configured hotkeys is pressed.
+
+    Args:
+        queue (Queue): The queue to which messages are added.
+    """
 
     try:
         win32api.LoadKeyboardLayout('00000409',1)    

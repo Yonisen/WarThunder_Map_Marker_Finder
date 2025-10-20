@@ -1,3 +1,10 @@
+"""
+This module is responsible for displaying the results of the distance and
+azimuth calculations in a transparent overlay window.
+
+It uses tkinter to create a simple GUI that displays the information provided
+through a queue. It also handles the display of error messages.
+"""
 from tkinter import *
 #import time
 #import os
@@ -11,6 +18,21 @@ import configparser
 
 
 def drawLines(queue1, conf, root, label1, label2, waiting1, waiting2):
+    """
+    Draws lines of text on the overlay window.
+
+    This function is called periodically to check for new messages in the
+    queue and update the labels in the tkinter window accordingly.
+
+    Args:
+        queue1 (Queue): The queue from which to get messages.
+        conf (dict): A dictionary containing configuration settings.
+        root (Tk): The root tkinter window.
+        label1 (Label): The first label widget.
+        label2 (Label): The second label widget.
+        waiting1 (str): The ID of the first after event.
+        waiting2 (str): The ID of the second after event.
+    """
     
     try:
 
@@ -72,6 +94,16 @@ def drawLines(queue1, conf, root, label1, label2, waiting1, waiting2):
         file.close() 
 
 def printResults(queue1):
+    """
+    Creates and manages the overlay window for displaying results.
+
+    This function initializes a transparent tkinter window that stays on top of
+    other windows. It reads the configuration for the window's appearance and
+    position, and then starts the `drawLines` function to display the results.
+
+    Args:
+        queue1 (Queue): The queue from which to get messages.
+    """
     
     try:
 

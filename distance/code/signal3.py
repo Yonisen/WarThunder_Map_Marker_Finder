@@ -1,3 +1,9 @@
+"""
+This module is responsible for handling global mouse events.
+
+It uses the pynput library to listen for mouse clicks and puts a message
+into the queue when a registered mouse button is pressed.
+"""
 #from pynput.keyboard import Listener
 #from pynput.keyboard import Listener
 from pynput import mouse
@@ -7,6 +13,16 @@ import traceback
 import configparser
 
 def signal3(queue):
+    """
+    Listens for mouse clicks and puts messages into a queue.
+
+    This function reads the mouse button configuration from a file, sets up a
+    global mouse listener, and puts a message into the queue when one of the
+    configured mouse buttons is pressed.
+
+    Args:
+        queue (Queue): The queue to which messages are added.
+    """
 
     try:   
         

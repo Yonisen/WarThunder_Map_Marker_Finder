@@ -1,3 +1,10 @@
+"""
+This module provides a GUI for setting the map scale.
+
+It allows the user to input a known distance on the map, and then calculates
+the scale in pixels per meter. The scale is then saved to a file for use by
+the main application.
+"""
 from tkinter import *
 from tkinter import ttk
 import re
@@ -11,6 +18,15 @@ import cv2
 try: 
 
     def read_config(name):
+        """
+        Reads the configuration for the scale window.
+
+        Args:
+            name (str): The path to the configuration file.
+
+        Returns:
+            dict: A dictionary containing the configuration settings.
+        """
         config = configparser.ConfigParser()
         config.read(name, encoding='utf-8')
         conf = {}
@@ -52,6 +68,13 @@ try:
     scale = round(float(scale), 1)   
 
     def get_text():
+        """
+        Gets the text from the entry box and calculates the scale.
+
+        This function reads the distance entered by the user, finds known
+        landmarks on the minimap, and calculates the scale based on the
+        distance between them. The result is then saved to a file.
+        """
         try:
             res = entry.get()
             if res != "":
@@ -124,10 +147,28 @@ try:
             file.close()
 
     def close():
+        """
+        Closes the scale window.
+
+        This function sets the focus back to the War Thunder window and then
+        quits the application.
+        """
         selectWindow()
         quit()
 
     def validation(newval):
+        """
+        Validates the input to the entry box.
+
+        This function ensures that only numbers up to four digits can be
+        entered into the entry box.
+
+        Args:
+            newval (str): The new value of the entry box.
+
+        Returns:
+            bool: True if the new value is valid, False otherwise.
+        """
         try:
             return re.match("^\d{0,4}$", newval) is not None
         except Exception as e:
@@ -138,6 +179,16 @@ try:
             file.close()           
 
     def selectWindow(event=1):
+        """
+        Selects the War Thunder window.
+
+        This function finds the War Thunder window and sets it as the
+        foreground window.
+
+        Args:
+            event (int, optional): The event that triggered the function.
+                Defaults to 1.
+        """
         try:
             toplist = []
             winlist = []

@@ -1,3 +1,10 @@
+"""
+This is the main entry point for the WarThunder Map Marker Finder.
+
+This script initializes the YOLOv5 model, and then starts separate processes
+to handle keyboard input, mouse input, and the display of results. It then
+enters a loop to process messages from the input queues.
+"""
 import traceback
 import sys
 import os
@@ -6,6 +13,16 @@ sys.path.append('code/')
 try:
     
     def signal1(queue):
+        """
+        Starts the keyboard listener process.
+
+        This function imports the `signal1` module and starts the keyboard
+        listener in a separate process. It also writes the process ID to a
+        file.
+
+        Args:
+            queue (Queue): The queue to be used by the keyboard listener.
+        """
         try:
         
             import signal1
@@ -22,6 +39,16 @@ try:
             file.close()    
             
     def signal3(queue):
+        """
+        Starts the mouse listener process.
+
+        This function imports the `signal3` module and starts the mouse
+        listener in a separate process. It also writes the process ID to a
+        file.
+
+        Args:
+            queue (Queue): The queue to be used by the mouse listener.
+        """
         try:
         
             import signal3
@@ -38,6 +65,16 @@ try:
             file.close()
             
     def printResults(queue1):
+        """
+        Starts the results display process.
+
+        This function imports the `printResults` module and starts the results
+        display in a separate process. It also writes the process ID to a
+        file.
+
+        Args:
+            queue1 (Queue): The queue to be used by the results display.
+        """
         try:
         
             import printResults
@@ -105,7 +142,14 @@ try:
         process3 = 0
         process5 = 0
         
-        def startChilds():      
+        def startChilds():
+            """
+            Starts the child processes.
+
+            This function creates the queues and starts the keyboard listener,
+            mouse listener, and results display processes. It then starts the
+            `checkSignals` function to monitor the processes.
+            """
             global queue, queue1, process1, process3, process5
             queue = Queue()
             queue1 = Queue()
@@ -118,6 +162,12 @@ try:
             checkSignals()
             
         def checkSignals():
+            """
+            Checks the status of the child processes.
+
+            This function checks if any of the child processes have exited
+            with an error. If they have, it restarts them.
+            """
             
             if (process1.exitcode != 0 and process1.exitcode != None) or (process3.exitcode != 0 and process3.exitcode != None) or (process5.exitcode != 0 and process5.exitcode != None):
                 queue_alt = queue

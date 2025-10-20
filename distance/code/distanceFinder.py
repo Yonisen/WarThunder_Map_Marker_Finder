@@ -1,3 +1,10 @@
+"""
+This module provides core functionality for the WarThunder Map Marker Finder.
+
+It captures a screenshot of the minimap, identifies the player's tank and a
+yellow marker using a YOLOv5 model, and calculates the distance and azimuth
+between them. The results are then passed to a queue for display.
+"""
 #from PIL import ImageGrab
 #from PIL import Image
 import numpy as np
@@ -6,6 +13,15 @@ import pyautogui
 import configparser
 
 def read_config(name):
+    """
+    Reads the screen resolution from a configuration file.
+
+    Args:
+        name (str): The path to the configuration file.
+
+    Returns:
+        str: The screen resolution string.
+    """
     config = configparser.ConfigParser()
     config.read(name, encoding='utf-8')
     resolution = config.get("Combinations", "Resolution")
@@ -25,6 +41,17 @@ resolutionObject = {
 }
 
 def checkDistance(model, queue1):
+    """
+    Captures the screen, detects objects, and calculates distance.
+
+    This function takes a screenshot of the minimap, uses the provided YOLO
+    model to detect the player's tank and a yellow marker, calculates the
+    distance and azimuth between them, and puts the results into a queue.
+
+    Args:
+        model: The YOLOv5 model used for object detection.
+        queue1 (Queue): The queue to which the results are added.
+    """
   
         ######################################################################
         resolution = read_config("code/buttons.ini")
@@ -154,6 +181,16 @@ def checkDistance(model, queue1):
         return
         ######################################################################
 def showErrorArrow(screen, queue1):
+    """
+    Handles the error when the player's tank is not found.
+
+    This function saves the current screen to a file for debugging purposes
+    and puts an error message into the queue.
+
+    Args:
+        screen: The screenshot of the minimap.
+        queue1 (Queue): The queue to which the error message is added.
+    """
     file = open('not_found/your_tank_not_found/number.txt', 'r')
     number = file.read()
     if number == "":
@@ -169,6 +206,16 @@ def showErrorArrow(screen, queue1):
     return
 
 def showErrorMarker(screen, queue1):
+    """
+    Handles the error when the yellow marker is not found.
+
+    This function saves the current screen to a file for debugging purposes
+    and puts an error message into the queue.
+
+    Args:
+        screen: The screenshot of the minimap.
+        queue1 (Queue): The queue to which the error message is added.
+    """
     file = open('not_found/mark_not_found/number.txt', 'r')
     number = file.read()
     if number == "":

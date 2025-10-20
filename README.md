@@ -1,41 +1,25 @@
-# WarThunder_Map_Marker_Finder_41
+# WarThunder Map Marker Finder
 
-Дальномер по желтой метке на карте. Работает на <b>любом</b> компьютере (Windows 10), даже на самом старом.<br>
-Использует скриншоты и оверлей. Основан на нейросети YOLOv5 от ultralitics.<br>
-Все вычисления идут через процессор.<br>
+This tool is a rangefinder for the game WarThunder, which works by taking a screenshot of the minimap and using a YOLOv5 model to identify the player's vehicle and a yellow map marker. It then calculates the distance and azimuth between the two points and displays the information in an overlay.
 
-English version is <a href="https://github.com/Yonisen/WarThunder_Yellow_Mark_Rangefinder">here</a>
+## Installation
 
-## Установка
+1.  Download the repository as a ZIP file and extract it.
+2.  Navigate to the `distance` directory.
+3.  Run the `install.py` script to install the required Python packages.
 
-- Скачайте архив (зеленая кнопка `Code`)
+## Usage
 
-- Распакуйте весь архив (папка `data` вам тоже нужна) и перейдите в папку `distance`
-- Читайте `Инструкцию.txt` (в ней также рассказаны интересные особенности)
-- Если у вас разрешение монитора, которое не поддерживается программой, то загляните в папку, которую я так и назвал, читайте скриншоты
+1.  Run the `miniKarta.py` script to start the application.
+2.  The application will run in the background and wait for hotkey presses.
+3.  The default hotkeys are:
+    *   **t**: Measure the distance to the yellow marker.
+    *   **Ctrl+N**: Set the map scale.
 
-## Замер дистанции (t)
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen15.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen15_1.png">
+## How it Works
 
-## Что происходит
-Создается скриншот<br>
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map15.png">
+When the distance measurement hotkey is pressed, the application takes a screenshot of the minimap. The YOLOv5 model then analyzes the screenshot to find the player's vehicle and the yellow marker. Once both are found, the application calculates the distance and azimuth between them. The results are then displayed in a transparent overlay window.
 
-Нейросеть ищет метки на скриншоте<br>
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map15_1.jpg">
+## Configuration
 
-
-## Еще пример
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen25.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen25_1.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map25.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/Map25_1.jpg">
-
-## Установка масштаба карты (Ctrl+N)
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen3.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen4.png">
-
-## Настройка программы
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen1.png">
-<img src="https://github.com/Yonisen/WarThunder_Map_Marker_Finder/blob/main/data/images/screen2.png">
+The hotkeys and other settings can be configured in the `distance/code/buttons.ini` file.
